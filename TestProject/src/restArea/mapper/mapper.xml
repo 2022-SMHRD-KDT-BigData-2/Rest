@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="restArea.Model.userDAO">
+
+	<insert id="mainJoin" parameterType="restArea.model.userVO"> <!-- 패키지 경로 주의하세요 -->
+		insert into user_info(id, pw) values(#{id}, #{pw})
+	</insert>
+		
+	<!-- <select id="idCheck">
+		select * from user_info where id = #{id}
+	</select> -->
+	
+ 	<select id="mainLogin" parameterType="restArea.model.userVO" resultType="restArea.model.userVO">
+		select * from user_info where id = #{id} and pw = #{pw}
+	</select> 
+	
+	<!-- <insert id="write" parameterType="restArea.model.writeVO">
+		insert into write_board
+		values(write_seq.nextval, #{id}, #{category}, #{title}, #{wcontent}, #{joymsg}, #{delmsg}, sysdate);	
+	</insert> -->
+
+</mapper>
