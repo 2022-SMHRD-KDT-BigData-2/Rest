@@ -32,6 +32,6 @@ public class write extends HttpServlet {
 		}else {
 			System.out.println("½ÇÆÐ");
 		}
-		response.sendRedirect("Main.jsp");	
+		response.sendRedirect("goMain");	
 	}
 }

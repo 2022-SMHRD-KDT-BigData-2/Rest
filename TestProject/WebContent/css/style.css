@@ -385,7 +385,6 @@ div.mchanswer {
    border: 4.5px solid #e1e5fa;
    height: 600px;
    border-radius: 30px;
-   
 }
 
 div.mmchanswer {
@@ -394,12 +393,13 @@ div.mmchanswer {
    height: auto;
    margin: 15px;
    border-radius: 30px;
-   white-spa: pre;
-   
+   white-space: normal;
+   word-break:break-all;
 }
 
 span.chreport {
-   margin-top: 70px; width : 100%;
+   margin-top: 70px;
+   width: 100%;
    height: 80px;
    width: 100%;
 }

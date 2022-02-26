@@ -1,3 +1,4 @@
+<%@page import="restArea.model.recommDAO"%>
 <%@page import="restArea.model.userVO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
@@ -34,13 +35,14 @@
 <body>
 	<%
 		userVO vo = (userVO)session.getAttribute("vo");
+		/* String rvo = (String)request.getAttribute("rvo");  */
 	%>
 	<div class="header navbar-fixed-top">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-4 col-md-4 col-sm-2 col-xs-2">
 					<h1 class="active">
-						<a href="Main.jsp" title="Home"><img src="./images/logo.png" width="80px" height="80px"></a>
+						<a href="goMain" title="Home"><img src="./images/logo.png" width="80px" height="80px"></a>
 					</h1>
 				</div>
 				<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
@@ -105,7 +107,11 @@
 				</div>
 				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
 					<div class="tag">
-						<a href="reportMessage.jsp"># 신고가 ~!</a>						
+						<% if(vo.getRcount() != null){ %>
+							<a href="reportMessage.jsp" style="color:red;"># 신고가 들어왔습니다!</a>
+						<% } else{ %>
+							<a># 따뜻하게 사용해주세요!</a>
+						<% } %>						
 					</div>
 				</div>
 				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
@@ -134,10 +140,15 @@
 				</div>
 			</div>
 
+			<% 
+				recommDAO dao = new recommDAO();	
+				String rvo = dao.getrecomm(); 
+			%>
 			<div class="row">
 				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
 					<div class="drawrecomm">
-						<h1>힘이 되는 말!</h1>
+						<h1>힘이 되는 말!</h1>						
+							<span> <%= rvo %> </span>	
 					</div>
 					<!-- 화원 -->
 				</div>

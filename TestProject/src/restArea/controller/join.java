@@ -28,7 +28,7 @@ public class join extends HttpServlet {
 		int cnt = dao.join(vo);
 		
 		if(cnt>0) {
-			response.sendRedirect("Main.jsp");
+			response.sendRedirect("goMain");
 		} else {
 			response.sendRedirect("join.jsp");
 		}	

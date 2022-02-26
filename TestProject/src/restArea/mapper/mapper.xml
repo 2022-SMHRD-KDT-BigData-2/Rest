@@ -14,7 +14,12 @@
 	
  	<select id="mainLogin" parameterType="restArea.model.userVO" resultType="restArea.model.userVO">
 		select * from user_info where id = #{id} and pw = #{pw}
+	</select> 	
+	
+ 	<select id="getRecomm" resultType="string">
+		select rcontecnt from recomm where recomm_seq = (select TO_CHAR(sysdate, 'dd') from dual)
 	</select> 
+	 
 	
 	<!-- <insert id="write" parameterType="restArea.model.writeVO">
 		insert into write_board

@@ -3,6 +3,7 @@ package restArea.model;
 import java.io.InputStream;
 
 import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
@@ -19,7 +20,21 @@ public class recommDAO {
 			e.printStackTrace();
 		}
 	}
-	
+
 	// -----------------------------------------------------------------------------
+		
+//		public recommVO getrecomm(recommVO vo) { 
+//			SqlSession session = sqlSessionFactory.openSession(); 
+//			recommVO rvo = session.selectOne("getRecomm", vo); 
+//			session.close(); 
+//			return rvo; 
+//		}
+		
+		public String getrecomm() { 
+			SqlSession session = sqlSessionFactory.openSession(); 
+			String rvo = session.selectOne("getRecomm"); 
+			session.close(); 
+			return rvo; 
+		}
 
 }

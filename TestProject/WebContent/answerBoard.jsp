@@ -36,7 +36,7 @@
          <div class="row">
             <div class="col-lg-4 col-md-4 col-sm-2 col-xs-2">
                <h1 class="active">
-                  <a href="index.html" title="Home"><img src="./images/logo.png"
+                  <a href="goMain" title="Home"><img src="./images/logo.png"
                      width="80px" height="80px"></a>
                </h1>
             </div>
@@ -50,7 +50,7 @@
                         <li><a title="MyPage">나의 쉼터</a>
                            <ul>
                               <li><a href="checkBoard.jsp" title="Check">확인하기</a></li>
-                              <li><a href="Main.jsp" title="Logout">로그아웃</a></li>
+                              <li><a href="logout" title="Logout">로그아웃</a></li>
                            </ul></li>
                      </ul>
                   </div>

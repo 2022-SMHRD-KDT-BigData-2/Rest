@@ -36,7 +36,7 @@
          <div class="row">
             <div class="col-lg-4 col-md-4 col-sm-2 col-xs-2">
                <h1 class="active">
-                  <a href="index.html" title="Home"><img src="./images/logo.png"
+                  <a href="goMain" title="Home"><img src="./images/logo.png"
                      width="80px" height="80px"></a>
                </h1>
             </div>
@@ -44,15 +44,15 @@
                <div class="navigation">
                   <div id="navigation">
                      <ul>
-						<li><a href="writeBoard.jsp" title="Write">글 쓰기</a></li>
-						<li><a href="answerBoard.jsp" title="Answer">답변하기</a></li>
-						<li><a href="gardenBoard.jsp" title="MyGarden">나의 화원</a></li>
-						<li><a title="MyPage">나의 쉼터</a>
-							<ul>
-								<li><a href="checkBoard.jsp" title="Check">확인하기</a></li>
-								<li><a href="logout" title="Logout">로그아웃</a></li>
-							</ul></li>
-						</ul>
+                  <li><a href="writeBoard.jsp" title="Write">글 쓰기</a></li>
+                  <li><a href="answerBoard.jsp" title="Answer">답변하기</a></li>
+                  <li><a href="gardenBoard.jsp" title="MyGarden">나의 화원</a></li>
+                  <li><a title="MyPage">나의 쉼터</a>
+                     <ul>
+                        <li><a href="checkBoard.jsp" title="Check">확인하기</a></li>
+                        <li><a href="logout" title="Logout">로그아웃</a></li>
+                     </ul></li>
+                  </ul>
                   </div>
                </div>
             </div>
@@ -74,17 +74,17 @@
       <div class="container">
          <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-               <div class="mchanswer" style="border: 4.5px solid white;">
+               <div class="mchanswer" style="margin-left:12px; background-color: #e1e5fa">
                   <div class="mmchanswer">
-                     <h1>내가 쓴글 aaaaaaa aaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaa
-                        aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</h1>
+                     <h1>내가 쓴글 aaaaaaa aaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaASSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
+                        aaaaaaaaaaaaaaaaaa aaaaaaaaaaaa</h1>
                   </div>
                </div>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                <div class="mchanswer " style="overflow-y: scroll;">
                   <div class="mmchanswer">
-                     <h1>답axxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                     <h1 >답axxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
                         xxxxxxxxxxxxxxxxxxxx글</h1>
                      <span class="chreport" style="display: flex;">
                         <form action="deleteMessage.jsp">
