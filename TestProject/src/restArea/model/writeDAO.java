@@ -13,7 +13,7 @@ public class writeDAO {
 	
 	static {
 		try {
-			String resource = "restArea.Mapper/config.xml";
+			String resource = "restArea/mapper/config.xml"; 
 			InputStream inputStream = Resources.getResourceAsStream(resource);
 			sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);					
 		} catch (Exception e) {

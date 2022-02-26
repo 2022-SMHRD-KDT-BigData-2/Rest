@@ -59,7 +59,7 @@
 								<li><a title="MyPage">나의 쉼터</a>
 									<ul>
 										<li><a href="checkBoard.jsp" title="Check">확인하기</a></li>
-										<li><a href="Main.jsp" title="Logout">로그아웃</a></li>
+										<li><a href="logout" title="Logout">로그아웃</a></li>
 									</ul></li>
 							</ul>
 							<% } %>
@@ -81,7 +81,7 @@
 	<div class="space-medium">
 		<div class="container">
 			<div class="row">
-		<%-- 		<% if(vo == null){ %>
+		 		<% if(vo == null){ %>
 				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
 					<div class="tag">
 						<a># 위로가 필요해요</a>
@@ -97,7 +97,7 @@
 						<a># 편지를 써주세요</a>
 					</div>
 				</div>	
-				<% } else{ %> --%>
+				<% } else{ %> 
 				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
 					<div class="tag">
 						<a href="checkBoard.jsp"># 답변을 확인해주세요!</a>
@@ -114,7 +114,7 @@
 						
 					</div>
 				</div>	
-				<%-- <% } %> --%>
+				<% } %> 
 			</div>
 
 			<div class="row">

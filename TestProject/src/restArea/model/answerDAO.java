@@ -14,14 +14,14 @@ public class answerDAO {
    private static SqlSessionFactory sqlSessionFactory;
    
    static {
-      try {
-         String resource = "restArea.Mapper/config.xml";
-         InputStream inputStream = Resources.getResourceAsStream(resource);
-         sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);               
-      } catch (Exception e) {
-         e.printStackTrace();
-      }
-   }
+		try {
+			String resource = "restArea/mapper/config.xml"; 
+			InputStream inputStream = Resources.getResourceAsStream(resource);
+			sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);					
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
    
    // -----------------------------------------------------------------------------
    public int answer(answerVO avo) {

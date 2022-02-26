@@ -43,16 +43,16 @@
             <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
                <div class="navigation">
                   <div id="navigation">
-                     <ul>
-                        <li><a href="writeBoard.jsp" title="Write">글 쓰기</a></li>
-                        <li><a href="answerBoard.jsp" title="Answer">답변하기</a></li>
-                        <li><a href="gardenBoard.jsp" title="MyGarden">나의 화원</a></li>
-                        <li><a title="MyPage">나의 쉼터</a>
-                           <ul>
-                              <li><a href="checkBoard.jsp" title="Check">확인하기</a></li>
-                              <li><a href="Main.jsp" title="Logout">로그아웃</a></li>
-                           </ul></li>
-                     </ul>
+                    <ul>
+						<li><a href="writeBoard.jsp" title="Write">글 쓰기</a></li>
+						<li><a href="answerBoard.jsp" title="Answer">답변하기</a></li>
+						<li><a href="gardenBoard.jsp" title="MyGarden">나의 화원</a></li>
+						<li><a title="MyPage">나의 쉼터</a>
+							<ul>
+								<li><a href="checkBoard.jsp" title="Check">확인하기</a></li>
+								<li><a href="logout" title="Logout">로그아웃</a></li>
+							</ul></li>
+					</ul>
                   </div>
                </div>
             </div>

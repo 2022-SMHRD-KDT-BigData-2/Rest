@@ -8,9 +8,9 @@
 		insert into user_info(id, pw) values(#{id}, #{pw})
 	</insert>
 		
-	<!-- <select id="idCheck">
+	<select id="idCheck" resultType="restArea.model.userVO">
 		select * from user_info where id = #{id}
-	</select> -->
+	</select> 
 	
  	<select id="mainLogin" parameterType="restArea.model.userVO" resultType="restArea.model.userVO">
 		select * from user_info where id = #{id} and pw = #{pw}

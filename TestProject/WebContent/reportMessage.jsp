@@ -140,12 +140,6 @@
 				<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
 					<div class="navigation">
 						<div id="navigation">
-							<% if(vo == null){ %>
-							<ul>
-								<li><a title="SignUp">회원가입</a></li>
-								<li><a title="Login">로그인</a></li>
-							</ul>
-							<% }else{ %>
 							<ul>
 								<li><a title="Write">글 쓰기</a></li>
 								<li><a title="Answer">답변하기</a></li>
@@ -156,7 +150,6 @@
 										<li><a title="Logout">로그아웃</a></li>
 									</ul></li>
 							</ul>
-							<% } %>
 						</div>
 					</div>
 				</div>
@@ -175,23 +168,6 @@
 	<div class="space-medium">
 		<div class="container">
 			<div class="row">
-		<%-- 		<% if(vo == null){ %>
-				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-					<div class="tag">
-						<a># 위로가 필요해요</a>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-					<div class="tag">
-						<a># 힘이 되어주세요</a>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-					<div class="tag">
-						<a># 편지를 써주세요</a>
-					</div>
-				</div>	
-				<% } else{ %> --%>
 				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
 					<div class="tag">
 						<a># 답변을 확인해주세요!</a>

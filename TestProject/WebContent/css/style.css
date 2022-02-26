@@ -362,49 +362,52 @@ div.text-center>ul>li>a {
 }
 
 div.mcheckwrite {
-	width: 100%;
-	height: 700px;
-	border-radius: 30px;
-	background-color: beige;
+   width: 100%;
+   height: 700px;
+   border-radius: 30px;
+   background-color: beige;
 }
 
 div.chanswer {
-	width: 130%;
-	height: 250px;
-	border: 4.5px solid #c2d8b9;
-	border-radius: 30px;
+   width: 130%;
+   height: 250px;
+   border: 4.5px solid #c2d8b9;
+   border-radius: 30px;
 }
 
 div.mchwrite {
-	background-color: #e1e5fa;
-	border-radius: 30px;
-	height: auto;
+   background-color: #e1e5fa;
+   border-radius: 30px;
+   height: auto;
 }
 
 div.mchanswer {
-	border: 4.5px solid #e1e5fa;
-	height: 600px;
-	border-radius: 30px;
+   border: 4.5px solid #e1e5fa;
+   height: 600px;
+   border-radius: 30px;
+   
 }
 
 div.mmchanswer {
-	background-color: #e1e5fa;
-	width: 500px;
-	height: auto;
-	margin: 15px;
-	border-radius: 30px;
+   background-color: #e1e5fa;
+   width: 500px;
+   height: auto;
+   margin: 15px;
+   border-radius: 30px;
+   white-spa: pre;
+   
 }
 
 span.chreport {
-	margin-top: 70px; width : 100%;
-	height: 80px;
-	width: 100%;
+   margin-top: 70px; width : 100%;
+   height: 80px;
+   width: 100%;
 }
 
 div.recontent {
-	text-align: center;
-	font-size: 20px;
-	zoom: 1.5;
+   text-align: center;
+   font-size: 20px;
+   zoom: 1.5;
 }
 
 /*-------------- align ------------*/

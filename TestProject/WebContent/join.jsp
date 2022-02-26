@@ -47,29 +47,10 @@
 				<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
 					<div class="navigation">
 						<div id="navigation">
-							<%
-								if (vo == null) {
-							%>
 							<ul>
 								<li><a href="join.jsp" title="SignUp">회원가입</a></li>
 								<li><a href="login.jsp" title="Login">로그인</a></li>
-							</ul>
-							<%
-								} else {
-							%>
-							<ul>
-								<li><a href="writeBoard.jsp" title="Write">글 쓰기</a></li>
-								<li><a href="answerBoard.jsp" title="Answer">답변하기</a></li>
-								<li><a href="gardenBoard.jsp" title="MyGarden">나의 화원</a></li>
-								<li><a title="MyPage">나의 쉼터</a>
-									<ul>
-										<li><a href="checkBoard.jsp" title="Check">확인하기</a></li>
-										<li><a href="Main.jsp" title="Logout">로그아웃</a></li>
-									</ul></li>
-							</ul>
-							<%
-								}
-							%>
+							</ul>	
 						</div>
 					</div>
 				</div>
@@ -99,7 +80,7 @@
 								<input type="text" class="form-control" name="id" id="check" style="border:white; font-size:25px; color:black; " required>
 								<button type="button" onclick="idCheck()" class="btn btn-primary" style="height:60px;">중복 확인</button>				
 							</span>	
-								<p id="result"></p><br>
+								<p id="result" style="margin-top:20px;"></p><br>
 						</div>
 					</div>
 					<div class="row">
