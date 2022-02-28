@@ -23,18 +23,11 @@ public class recommDAO {
 
 	// -----------------------------------------------------------------------------
 		
-//		public recommVO getrecomm(recommVO vo) { 
-//			SqlSession session = sqlSessionFactory.openSession(); 
-//			recommVO rvo = session.selectOne("getRecomm", vo); 
-//			session.close(); 
-//			return rvo; 
-//		}
-		
-		public String getrecomm() { 
-			SqlSession session = sqlSessionFactory.openSession(); 
-			String rvo = session.selectOne("getRecomm"); 
-			session.close(); 
-			return rvo; 
-		}
+	public recommVO todayRecomm() {
+		SqlSession session = sqlSessionFactory.openSession(); 
+		recommVO rvo = session.selectOne("todayRecomm"); 
+		session.close(); 
+		return rvo; 	
+	}
 
 }

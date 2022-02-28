@@ -1,4 +1,5 @@
-<%@page import="restArea.model.recommDAO"%>
+<%@page import="restArea.model.recommVO"%>
+<%@page import="restArea.model.bookVO"%>
 <%@page import="restArea.model.userVO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
@@ -35,7 +36,8 @@
 <body>
 	<%
 		userVO vo = (userVO)session.getAttribute("vo");
-		/* String rvo = (String)request.getAttribute("rvo");  */
+		recommVO rvo = (recommVO)request.getAttribute("rvo"); 
+		bookVO bvo = (bookVO)request.getAttribute("bvo");
 	%>
 	<div class="header navbar-fixed-top">
 		<div class="container">
@@ -126,7 +128,10 @@
 			<div class="row">
 				<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
 					<div class="introduce">
-						<h1>힘을 주세요!</h1>
+						<h1 style="font-size:42px">쉼터 ; 고민을 들어줄게요! </h1><br><br>
+						<p>자신을 모르는 사람과 ‘편지’로 소통하며</p>
+						<p>솔직한 나의 이야기를 주고받으며 </p>
+						<p> ♥ 힐링하세요 ♥ </p>
 						<br>
 					</div>
 					<!-- 소개글 -->
@@ -134,21 +139,17 @@
 
 				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
 					<div class="makegarden">
-						<h1># 화원 가꾸기</h1>
 					</div>
 					<!-- 화원 -->
 				</div>
 			</div>
 
-			<% 
-				recommDAO dao = new recommDAO();	
-				String rvo = dao.getrecomm(); 
-			%>
+			
 			<div class="row">
 				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
 					<div class="drawrecomm">
-						<h1>힘이 되는 말!</h1>						
-							<span> <%= rvo %> </span>	
+						<h1># 오늘의 글</h1><br>					
+							<span style="font-size:30px;"> <%= rvo.getRcontecnt() %> </span>	
 					</div>
 					<!-- 화원 -->
 				</div>
@@ -156,7 +157,9 @@
 
 				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
 					<div class="todaybook">
-						<h1>오늘의 책</h1>
+						<h1># 오늘의 책</h1>
+						
+						<span><%= bvo.getBname() %></span>
 					</div>
 					<!-- 화원 -->
 				</div>

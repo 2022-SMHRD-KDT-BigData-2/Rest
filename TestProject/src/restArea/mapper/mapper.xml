@@ -4,7 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="restArea.Model.userDAO">
 
-	<insert id="mainJoin" parameterType="restArea.model.userVO"> <!-- 패키지 경로 주의하세요 -->
+	<insert id="mainJoin" parameterType="restArea.model.userVO"> 
 		insert into user_info(id, pw) values(#{id}, #{pw})
 	</insert>
 		
@@ -16,10 +16,13 @@
 		select * from user_info where id = #{id} and pw = #{pw}
 	</select> 	
 	
- 	<select id="getRecomm" resultType="string">
-		select rcontecnt from recomm where recomm_seq = (select TO_CHAR(sysdate, 'dd') from dual)
+ 	<select id="todayRecomm" resultType="restArea.model.recommVO">
+ 		select * from recomm where recomm_seq = (select TO_CHAR(sysdate, 'dd') from dual)
 	</select> 
 	 
+	  <select id="todayBook" resultType="restArea.model.bookVO">
+	 	select * from book where book_seq = (select TO_CHAR(sysdate, 'dd') from dual)
+	 </select>
 	
 	<!-- <insert id="write" parameterType="restArea.model.writeVO">
 		insert into write_board

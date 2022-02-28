@@ -9,24 +9,22 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import restArea.model.recommDAO;
-import restArea.model.recommVO;
+import restArea.model.bookDAO;
+import restArea.model.bookVO;
 
-// ±Û ÃßÃµ
-
-@WebServlet("/recomm")
-public class recomm extends HttpServlet {
+@WebServlet("/todayBook")
+public class todayBook extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {			
-			
-//		recommDAO dao = new recommDAO();	
-//		recommVO rvo = dao.todayRecomm();
-//		
-//		request.setAttribute("rvo", rvo);
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+//		bookDAO dao = new bookDAO();
+//		bookVO bvo = dao.todayBook();
+//				
+//		request.setAttribute("bvo", bvo);
 //		
 //		RequestDispatcher rd = request.getRequestDispatcher("goMain");
 //		rd.forward(request, response);	
 //		
-//		System.out.println(rvo.getRcontecnt());
+//		System.out.println(bvo.getBname());
 	}
 }

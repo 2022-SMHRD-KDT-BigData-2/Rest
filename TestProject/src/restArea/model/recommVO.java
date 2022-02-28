@@ -10,10 +10,6 @@ public class recommVO {
 		this.rcontecnt = rcontecnt;
 	}
 
-	public recommVO(String rcontecnt) {
-		this.rcontecnt = rcontecnt;
-	}
-
 	public int getRecomm_seq() {
 		return recomm_seq;
 	}

@@ -3,6 +3,7 @@ package restArea.model;
 import java.io.InputStream;
 
 import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
@@ -22,4 +23,17 @@ public class bookDAO {
 	
 	// -----------------------------------------------------------------------------
 
+//	public bookVO todayBook(bookVO vo) {
+//		SqlSession session = sqlSessionFactory.openSession(); 
+//		bookVO bvo = session.selectOne("todayBook", vo); 
+//		session.close(); 
+//		return bvo; 	
+//	}
+	
+	public bookVO todayBook() {
+		SqlSession session = sqlSessionFactory.openSession(); 
+		bookVO bvo = session.selectOne("todayBook"); 
+		session.close(); 
+		return bvo; 	
+	}
 }

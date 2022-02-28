@@ -27,6 +27,7 @@ public class write extends HttpServlet {
 		writeDAO dao = new writeDAO();
 		int cnt = dao.write(wvo);
 		
+		
 		if(cnt > 0) {
 			System.out.println("¼º°ø");
 		}else {
