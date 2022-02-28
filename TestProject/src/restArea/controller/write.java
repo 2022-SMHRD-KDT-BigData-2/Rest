@@ -6,7 +6,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import restArea.model.userVO;
 import restArea.model.writeDAO;
 import restArea.model.writeVO;
 
@@ -19,13 +21,18 @@ public class write extends HttpServlet {
 		
 		request.setCharacterEncoding("EUC-KR");
 		
+		HttpSession session = request.getSession();
+		userVO uvo = (userVO)session.getAttribute("vo");	
+		
+		String id = uvo.getId(); 
+		String category = request.getParameter("category");
 		String title = request.getParameter("title");
 		String wcontent = request.getParameter("wcontent");
 		
-		writeVO wvo = new writeVO(title, wcontent);
+		writeVO vo = new writeVO(id, category, title, wcontent);
 		
 		writeDAO dao = new writeDAO();
-		int cnt = dao.write(wvo);
+		int cnt = dao.write(vo);
 		
 		
 		if(cnt > 0) {

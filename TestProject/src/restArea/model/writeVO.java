@@ -8,10 +8,10 @@ public class writeVO {
 	private String wdate;
 	private String title;
 	private String wcontent;
-	private int joymsg;
-	private int delmsg;
+	private String joymsg;
+	private String delmsg;
 	
-	public writeVO(int write_seq, String id, String category, String wdate, String title, String wcontent, int joymsg, int delmsg) {
+	public writeVO(int write_seq, String id, String category, String wdate, String title, String wcontent, String joymsg, String delmsg) {
 		this.write_seq = write_seq;
 		this.id = id;
 		this.category = category;
@@ -21,8 +21,11 @@ public class writeVO {
 		this.joymsg = joymsg;
 		this.delmsg = delmsg;	
 	}
-
-	public writeVO(String title, String wcontent) {
+	
+	
+	public writeVO(String id, String category, String title, String wcontent) {
+		this.id = id;
+		this.category = category;
 		this.title = title;
 		this.wcontent = wcontent;
 	}
@@ -75,19 +78,19 @@ public class writeVO {
 		this.wcontent = wcontent;
 	}
 
-	public int getJoymsg() {
+	public String getJoymsg() {
 		return joymsg;
 	}
 
-	public void setJoymsg(int joymsg) {
+	public void setJoymsg(String joymsg) {
 		this.joymsg = joymsg;
 	}
 
-	public int getDelmsg() {
+	public String getDelmsg() {
 		return delmsg;
 	}
 
-	public void setDelmsg(int delmsg) {
+	public void setDelmsg(String delmsg) {
 		this.delmsg = delmsg;
 	}
 }

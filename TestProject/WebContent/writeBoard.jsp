@@ -71,26 +71,25 @@
 
 	<!-- 여기서부터 작성 -->
 
-	<div class="write-medium">
+	<div class="space-medium">
 		<div class="container">
-				<div class="input-form-backgroud row">
-					<div class="input-form col-md-12 mx-auto">
-			<div class="row">
+			<div class="input-form-backgroud row">
+				<div class="input-form col-md-12 mx-auto">
+					<div class="row">
 						<form action="write" method="post">
 							<h1 class="joinTitle">당신의 이야기를 보내주세요</h1>
 
-							<span class="sendwrite"> <select name="wbox"
-								style="width: 100px; height: 40px; font-size: 20px; margin-top: 5px;">
-									<option value="우울" selected>우울</option>
-									<option value="진로">진로</option>
-									<option value="관계">관계</option>
-									<option value="자유">자유</option>
+							<span class="sendwrite"> 
+							<select id="category" name="category" style="width: 100px; height: 40px; font-size: 20px; margin-top: 5px;">
+									<option value="1" selected>우울</option>
+									<option value="2">진로</option>
+									<option value="3">관계</option>
+									<option value="4">자유</option>
 							</select> &nbsp; &nbsp; 
 							<input type="text" class="form-control" style="font-size: 25px; color: black;" placeholder="글 제목" name="title" maxlength="50px";>
 							</span>
 
 							<textarea class="form-control" placeholder="글 내용" name="wcontent" style="height: 350px; font-size: 25px; color: black; margin-bottom : 20px;"></textarea>
-
 							<input type="submit" class="btn btn-primary" style="margin-left: 400px" value="전송">
 						</form>
 
@@ -130,6 +129,7 @@
 				</div>
 			</div>
 		</div>
+	</div>
 	<!-- /.footer-->
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

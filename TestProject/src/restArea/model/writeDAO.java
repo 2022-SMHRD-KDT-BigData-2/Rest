@@ -23,10 +23,10 @@ public class writeDAO {
 	
 	// -----------------------------------------------------------------------------
 	
-	public int write(writeVO wvo) {
+	public int write(writeVO vo) {
 		
 		SqlSession session = sqlSessionFactory.openSession(true);
-		int cnt = session.insert("write", wvo);
+		int cnt = session.insert("write", vo);
 		session.close();
 		return cnt;
 	}

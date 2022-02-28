@@ -20,13 +20,15 @@
  		select * from recomm where recomm_seq = (select TO_CHAR(sysdate, 'dd') from dual)
 	</select> 
 	 
-	  <select id="todayBook" resultType="restArea.model.bookVO">
+	<select id="todayBook" resultType="restArea.model.bookVO">
 	 	select * from book where book_seq = (select TO_CHAR(sysdate, 'dd') from dual)
-	 </select>
+	</select>
 	
-	<!-- <insert id="write" parameterType="restArea.model.writeVO">
-		insert into write_board
-		values(write_seq.nextval, #{id}, #{category}, #{title}, #{wcontent}, #{joymsg}, #{delmsg}, sysdate);	
-	</insert> -->
+	<insert id="write" parameterType="restArea.model.writeVO">
+		insert into write_board(write_seq, id, category, wdate, title, wcontent)
+		values(write_seq.nextval, #{id}, #{category}, sysdate, #{title}, #{wcontent})
+	</insert>
+	
+	
 
 </mapper>
