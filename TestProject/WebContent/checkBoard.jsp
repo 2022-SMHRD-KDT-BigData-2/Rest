@@ -1,3 +1,5 @@
+<%@page import="restArea.model.writeVO"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
    pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -31,6 +33,10 @@
 </head>
 
 <body>
+
+   <% List<writeVO> list = (List<writeVO>)request.getAttribute("list"); %> 
+   
+   
    <div class="header navbar-fixed-top">
       <div class="container">
          <div class="row">
@@ -44,15 +50,15 @@
                <div class="navigation">
                   <div id="navigation">
                     <ul>
-						<li><a href="writeBoard.jsp" title="Write">글 쓰기</a></li>
-						<li><a href="answerBoard.jsp" title="Answer">답변하기</a></li>
-						<li><a href="gardenBoard.jsp" title="MyGarden">나의 화원</a></li>
-						<li><a title="MyPage">나의 쉼터</a>
-							<ul>
-								<li><a href="checkBoard.jsp" title="Check">확인하기</a></li>
-								<li><a href="logout" title="Logout">로그아웃</a></li>
-							</ul></li>
-					</ul>
+                  <li><a href="writeBoard.jsp" title="Write">글 쓰기</a></li>
+                  <li><a href="answerBoard.jsp" title="Answer">답변하기</a></li>
+                  <li><a href="gardenBoard.jsp" title="MyGarden">나의 화원</a></li>
+                  <li><a title="MyPage">나의 쉼터</a>
+                     <ul>
+                        <li><a href="checkBoard.jsp" title="Check">확인하기</a></li>
+                        <li><a href="logout" title="Logout">로그아웃</a></li>
+                     </ul></li>
+               </ul>
                   </div>
                </div>
             </div>
@@ -77,20 +83,25 @@
                <div class="row">
                   <table class="table table-hover">
                      <thead>
+                     
                         <tr>
                            <th>번호</th>
                            <th>제목</th>
                            <th>날짜</th>
                            <th>답변</th>
                         </tr>
+                       
                      </thead>
                      <tbody>
+                    <% int n=1;
+                       for(writeVO vo : list){ %>
                         <tr>
-                           <td>1</td>
-                           <td>title</td>
-                           <td>date</td>
+                           <td><%= n++%></td>
+                           <td><%= vo.getTitle() %></td>
+                           <td><%= vo.getWdate() %></td>
                            <td><a href="checkAnswerBoard.jsp"> answer</a></td>
                         </tr>
+                            <%} %>
                      </tbody>
                   </table>
                </div>
@@ -121,27 +132,27 @@
       </div>
    </div>
    
-  	<!-- footer-->
-		<div class="footer">	
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-						<div class="footer-widget">
-							<img src="./images/instagram.png" width="60px" height="60px" alt="" hspace=10> 
-							<img src="./images/facebook.png" width="60px" height="60px" alt="" hspace=10> 
-							<img src="./images/twitter.png" width="60px" height="60px" alt="" hspace=10>
-						</div>
-						<br>
-						<div class="widget-title">
-							<p>Info Support Marketing</p>
-							<p>Terms of Use Privacy Policy</p>
-							<p>@2022 대화해조</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	<!-- /.footer-->
+     <!-- footer-->
+      <div class="footer">   
+         <div class="container">
+            <div class="row">
+               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                  <div class="footer-widget">
+                     <img src="./images/instagram.png" width="60px" height="60px" alt="" hspace=10> 
+                     <img src="./images/facebook.png" width="60px" height="60px" alt="" hspace=10> 
+                     <img src="./images/twitter.png" width="60px" height="60px" alt="" hspace=10>
+                  </div>
+                  <br>
+                  <div class="widget-title">
+                     <p>Info Support Marketing</p>
+                     <p>Terms of Use Privacy Policy</p>
+                     <p>@2022 대화해조</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   <!-- /.footer-->
 
    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
    <script src="js/jquery.min.js"></script>

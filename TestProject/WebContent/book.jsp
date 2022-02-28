@@ -61,7 +61,7 @@
 								<li><a href="gardenBoard.jsp" title="MyGarden">나의 화원</a></li>
 								<li><a title="MyPage">나의 쉼터</a>
 									<ul>
-										<li><a href="checkBoard.jsp" title="Check">확인하기</a></li>
+										<li><a href="check" title="Check">확인하기</a></li>
 										<li><a href="logout" title="Logout">로그아웃</a></li>
 									</ul></li>
 							</ul>
@@ -105,9 +105,8 @@
                <div class="todaybook" style="height:810px; margin-top:0; overflow-y: scroll;">
                   <h1><%= bvo.getBstory() %></h1>
                </div>
-            </div>
-
-            <a href="<%= bvo.getBuyurl() %>"><input type="button" class="btn btn-primary" style="margin-left: 500px; margin-top:50px;" value="구매하러 가기"></a>
+            </div>     
+            <input type="button" class="btn btn-primary" style="margin-left: 500px; margin-top:50px;" onclick="buyOpen()" value="구매하러 가기"/>
          </div>
       </div>
    </div>
@@ -155,6 +154,10 @@
    <script src="js/menumaker.js"></script>
    <script src="js/navigation.js" type="text/javascript"></script>
    
-  
+  	<script type="text/javascript">
+  		function buyOpen(){
+  			var myWindow = window.open("<%= bvo.getBuyurl() %>");
+  		}
+  	</script>
 </body>
 </html>

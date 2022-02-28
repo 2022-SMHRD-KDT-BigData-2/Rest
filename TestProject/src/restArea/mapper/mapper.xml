@@ -38,10 +38,14 @@
 		select gcount from user_info where id = #{id}
 	</select>
 	
-	<!-- <select id="drawGraph" resultType="restArea.model.writeVO">
-		select count(category) from write_board group by category
-	</select> -->
+	<select id="viewBoard" resultType="restArea.model.writeVO">
+      select * from write_board
+   </select>
 	
+<!-- 	<select id="drawGraph" resultType="restArea.model.writeVO">
+		select count(category) from write_board group by category
+	</select> 
+	 -->
 	
 
 </mapper>

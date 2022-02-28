@@ -26,7 +26,5 @@ public class bookRecomm extends HttpServlet {
 		
 		RequestDispatcher rd = request.getRequestDispatcher("book.jsp");
 		rd.forward(request, response);
-		
-		System.out.println(bvo);
 	}
 }

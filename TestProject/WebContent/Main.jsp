@@ -62,7 +62,7 @@
 								<li><a href="gardenBoard.jsp" title="MyGarden">나의 화원</a></li>
 								<li><a title="MyPage">나의 쉼터</a>
 									<ul>
-										<li><a href="checkBoard.jsp" title="Check">확인하기</a></li>
+										<li><a href="check" title="Check">확인하기</a></li>
 										<li><a href="logout" title="Logout">로그아웃</a></li>
 									</ul></li>
 							</ul>
@@ -214,54 +214,65 @@
 	<script src="js/navigation.js" type="text/javascript"></script>
 	
 	<!-- 그래프 -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 	<script>
+		function load() {
+			$.ajax({
+				url : 'EX02_json',
+				type : 'post',
+				dataType : 'json',
+				success : function(res) {
+					drawChart(res);
+				},
+				error : function() {
+					alert("error")
+				}
+			});
+		}
+
 		function drawChart(json) {
 			const ctx = document.getElementById('myChart').getContext('2d');
-			
-			function drawChart(json) {
-				const ctx = document.getElementById('myChart').getContext('2d');
-				// canvas : 그림판 div
+			// canvas : 그림판 div
 
-				// javascript 객체로 세부 설정을 정의
-				const myChart = new Chart(ctx, {
-					type : 'bar', // 차트의 종류
-					data : { // 차트를 그리는 설정
-						//labels : [ 'Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange' ], // 컬럼 이름
-						datasets : [ {
-							label : '# of Votes', // 제목
-							data : json, // 데이터
-							backgroundColor : [ 'rgba(255, 99, 132, 0.2)',
-									'rgba(54, 162, 235, 0.2)',
-									'rgba(255, 206, 86, 0.2)',
-									'rgba(75, 192, 192, 0.2)',
-									'rgba(153, 102, 255, 0.2)',
-									'rgba(255, 159, 64, 0.2)' ], // 각 bar 기둥의 색깔
-							borderColor : [ 'rgba(255, 99, 132, 1)',
-									'rgba(54, 162, 235, 1)',
-									'rgba(255, 206, 86, 1)',
-									'rgba(75, 192, 192, 1)',
-									'rgba(153, 102, 255, 1)',
-									'rgba(255, 159, 64, 1)' ], // 테두리 색
-							borderWidth : 1
-						// 테두리 두께
-						} ]
-					},
-					options : {
-						scales : {
-							y : {
-								beginAtZero : true
-							}
-						},
-
-						// 우리가 넣어주는 json 데이터에서 꺼내서 사용하게끔 지정
-						parsing : {
-							xAxisKey : 'name',
-							yAxisKey : 'score'
+			// javascript 객체로 세부 설정을 정의
+			const myChart = new Chart(ctx, {
+				type : 'bar', // 차트의 종류
+				data : { // 차트를 그리는 설정
+					//labels : [ 'Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange' ], // 컬럼 이름
+					datasets : [ {
+						label : '# of Votes', // 제목
+						data : json, // 데이터
+						backgroundColor : [ 'rgba(255, 99, 132, 0.2)',
+								'rgba(54, 162, 235, 0.2)',
+								'rgba(255, 206, 86, 0.2)',
+								'rgba(75, 192, 192, 0.2)',
+								'rgba(153, 102, 255, 0.2)',
+								'rgba(255, 159, 64, 0.2)' ], // 각 bar 기둥의 색깔
+						borderColor : [ 'rgba(255, 99, 132, 1)',
+								'rgba(54, 162, 235, 1)',
+								'rgba(255, 206, 86, 1)',
+								'rgba(75, 192, 192, 1)',
+								'rgba(153, 102, 255, 1)',
+								'rgba(255, 159, 64, 1)' ], // 테두리 색
+						borderWidth : 1
+					// 테두리 두께
+					} ]
+				},
+				options : {
+					scales : {
+						y : {
+							beginAtZero : true
 						}
+					},
+
+					// 우리가 넣어주는 json 데이터에서 꺼내서 사용하게끔 지정
+					parsing : {
+						xAxisKey : 'name',
+						yAxisKey : 'score'
 					}
-				});
-			}
+				}
+			});
+		}
 	</script>
 </body>
 </html>

@@ -49,7 +49,7 @@
                         <li><a href="gardenBoard.jsp" title="MyGarden">나의 화원</a></li>
                         <li><a title="MyPage">나의 쉼터</a>
                            <ul>
-                              <li><a href="checkBoard.jsp" title="Check">확인하기</a></li>
+                              <li><a href="check" title="Check">확인하기</a></li>
                               <li><a href="Main.jsp" title="Logout">로그아웃</a></li>
                            </ul></li>
                      </ul>

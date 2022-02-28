@@ -1,6 +1,3 @@
-<%@page import="restArea.model.writeDAO"%>
-<%@page import="restArea.model.writeVO"%>
-<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
    pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -34,13 +31,12 @@
 </head>
 
 <body>
-<% List<writeVO> list = (List<writeVO>)request.getAttribute("list");%>
    <div class="header navbar-fixed-top">
       <div class="container">
          <div class="row">
             <div class="col-lg-4 col-md-4 col-sm-2 col-xs-2">
                <h1 class="active">
-                  <a href="goMain" title="Home"><img src="./images/logo.png"
+                  <a href="index.html" title="Home"><img src="./images/logo.png"
                      width="80px" height="80px"></a>
                </h1>
             </div>
@@ -54,7 +50,7 @@
                         <li><a title="MyPage">나의 쉼터</a>
                            <ul>
                               <li><a href="checkBoard.jsp" title="Check">확인하기</a></li>
-                              <li><a href="logout" title="Logout">로그아웃</a></li>
+                              <li><a href="Main.jsp" title="Logout">로그아웃</a></li>
                            </ul></li>
                      </ul>
                   </div>
@@ -74,76 +70,47 @@
    </div>
 
    <!-- 여기서부터 작성 -->
-   <div class="space-medium">
+   <div class="space-medium" style="padding-bottom: 0px;">
       <div class="container">
-         <div class="input-form-backgroud row">
-            <div class="input-form col-md-12 mx-auto">
-               <div class="row">
-                  <table class="table table-hover" >
-                     <thead>
-                        <tr>
-
-                           <th>제목</th>
-                           <th>날짜</th>
-                           <th>답변</th>
-
-                        </tr>
-                     </thead>
-                     <tbody>
-                     <%-- <%if(wdate<14){ %> --%>
-                        <%for(writeVO wvo : list){ %>
-                        <tr>
-                           
-                           <td><%=wvo.getTitle() %></td>
-                           <td><%=wvo.getWdate() %></td>
-                           <td><a href="checkAnswerBoard.jsp"> answer</a></td>
-                        </tr> 
-                        <%} %>
-                        <%-- <%} else{%> --%>
-                        <td colspan="3">글이 삭제 되었습니다. 후련한니? 
-                        <form action="delMessage" method="post">
-                           <input type="submit" name="btnclose" class="btn btn-primary" 
-                           style="height: 40px; font-size: 16px; margin-left: 40px; padding-right: 20px; padding-left: 20px; padding-top: 12px;"
-                           value="예"> 
-                           <input type="submit" name="btnclose"  class="btn btn-primary"
-                           style="height: 40px; font-size: 16px; margin-left: 20px; padding-right: 20px; padding-left: 20px; padding-top: 12px;"
-                           value="아니오">
-                           </form>
-                        </td>
-                                 
-                        <%--  <%} %> --%>
-
-
-
-                     </tbody>
-                  </table>
+         <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+               <div class="mystory">
+                  <h1>내가 쓴글 aaaaaaa aaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaa
+                     aaaaaaaaaaaaaaaaaaaaaaaaaaaaadddddddddddddddddddddddddd
+                     dddddddddddddddaㅎㅇ ㅎㅎㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗ
+                     ㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㅀㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅗㅗㅗㅗㅗㅗㅗㅗㅗ</h1>
                </div>
-
             </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+               <div class="mchanswer">
+                  <div class="yourstory">
+                     <h1>답axxxxxxxxxxxxxxdxxxxxxddxxxxxxxxxxxxxxxxxxxxxxxxxffffffffffxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                        xxxxxxxxxxxxxxxxxxxxggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg글</h1>
+                     <span class="chreport" style="display: flex;">
+                        <form action="deleteMessage.jsp">
+                           <input type="submit" name="btnclose" class="btn btn-primary"
+                              style="height: 40px; font-size: 16px; margin-left: 300px; padding-right: 20px; padding-left: 20px; padding-top: 12px;"
+                              value="신고">
+                        </form>
+                        <form action="symMessage.jsp">
+                           <input type="submit" name="btnclose" class="btn btn-primary"
+                              style="height: 40px; font-size: 16px; margin-left: 15px; padding-right: 20px; padding-left: 20px; padding-top: 12px;"
+                              value="공감">
+                        </form>
+                     </span>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+         <div class="checkgarden" style="width: 500px;">
+            <img src="./images/flower.png">
          </div>
       </div>
    </div>
-   <div class="text-center">
-      <ul class="pagination">
-         <li><a href="#">1</a></li>
-         <li><a href="#">2</a></li>
-         <li><a href="#">3</a></li>
-         <li><a href="#">4</a></li>
-         <li><a href="#">5</a></li>
-
-      </ul>
    </div>
    <!-- 여기까지 작성 -->
 
-   <div class="hero-section">
-      <div class="container">
-         <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
-
-            </div>
-         </div>
-      </div>
-   </div>
 
    <!-- footer-->
    <div class="footer">
@@ -175,6 +142,5 @@
    <script src="js/bootstrap.min.js"></script>
    <script src="js/menumaker.js"></script>
    <script src="js/navigation.js" type="text/javascript"></script>
-
 </body>
 </html>
