@@ -39,7 +39,15 @@
 	</select>
 	
 	<select id="viewBoard" resultType="restArea.model.writeVO">
-      select * from write_board
+      select * from write_board where id=#{id}
+   </select>
+   
+   <select id="date" resultType="int" >
+		select *  from write_board where id=#{id} and sysdate-wdate>14
+	</select>
+	
+	<select id="drawGraph" resultType="int">
+       select count(category) from write_board group by category
    </select>
 	
 <!-- 	<select id="drawGraph" resultType="restArea.model.writeVO">

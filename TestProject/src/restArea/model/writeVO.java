@@ -11,7 +11,7 @@ public class writeVO {
 	private String joymsg;
 	private String delmsg;
 	
-	public writeVO() {}
+
 	
 	public writeVO(int write_seq, String id, String category, String wdate, String title, String wcontent, String joymsg, String delmsg) {
 		this.write_seq = write_seq;
@@ -34,6 +34,8 @@ public class writeVO {
 	public writeVO(String id) {
 		this.id = id;
 	}
+
+
 
 	public int getWrite_seq() {
 		return write_seq;
