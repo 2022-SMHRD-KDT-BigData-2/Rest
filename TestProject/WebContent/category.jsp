@@ -1,6 +1,3 @@
-<%@page import="restArea.model.bookVO"%>
-<%@page import="restArea.model.recommVO"%>
-<%@page import="restArea.model.userVO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
    pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -34,45 +31,34 @@
 </head>
 
 <body>
- 	<%
-		userVO vo = (userVO)session.getAttribute("vo");
- 		bookVO bvo = (bookVO)request.getAttribute("bvo");
-	%>
-	<div class="header navbar-fixed-top">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-4 col-md-4 col-sm-2 col-xs-2">
-					<h1 class="active">
-						<a href="goMain" title="Home"><img src="./images/logo.png" width="80px" height="80px"></a>
-					</h1>
-				</div>
-				<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-					<div class="navigation">
-						<div id="navigation">
-							<% if(vo == null){ %>
-							<ul>
-								<li><a href="join.jsp" title="SignUp">회원가입</a></li>
-								<li><a href="login.jsp" title="Login">로그인</a></li>
-							</ul>
-							<% }else{ %>
-							<ul>
-								<li><a href="writeBoard.jsp" title="Write">글 쓰기</a></li>
-								<li><a href="category.jsp" title="Answer">답변하기</a></li>
-								<li><a href="gardenBoard.jsp" title="MyGarden">나의 화원</a></li>
-								<li><a title="MyPage">나의 쉼터</a>
-									<ul>
-										<li><a href="check" title="Check">확인하기</a></li>
-										<li><a href="logout" title="Logout">로그아웃</a></li>
-									</ul></li>
-							</ul>
-							<% } %>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	
+   <div class="header navbar-fixed-top">
+      <div class="container">
+         <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-2 col-xs-2">
+               <h1 class="active">
+                  <a href="goMain" title="Home"><img src="./images/logo.png"
+                     width="80px" height="80px"></a>
+               </h1>
+            </div>
+            <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+               <div class="navigation">
+                  <div id="navigation">
+                     <ul>
+                        <li><a href="writeBoard.jsp" title="Write">글 쓰기</a></li>
+                        <li><a href="category.jsp" title="Answer">답변하기</a></li>
+                        <li><a href="gardenBoard.jsp" title="MyGarden">나의 화원</a></li>
+                        <li><a title="MyPage">나의 쉼터</a>
+                           <ul>
+                              <li><a href="check" title="Check">확인하기</a></li>
+                              <li><a href="Main.jsp" title="Logout">로그아웃</a></li>
+                           </ul></li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
    <div class="hero-section">
       <div class="container">
          <div class="row">
@@ -84,33 +70,29 @@
    </div>
 
    <!-- 여기서부터 작성 -->
-   <div class="space-medium">
+   <div class="answerBoard">
       <div class="container">
-         <div class="row">
-            <div class="col-lg-12 col-md-12  col-sm-12  col-xs-12 ">
-               <div style="border-bottom: 1px solid #372d2b; margin-bottom:50px">
-                  <h1 style="font-size: 40px;"><%= bvo.getBname()%></h1>
-                  
+         <div class="input-form-backgroud row">
+            <div class="input-form col-md-12 mx-auto"
+               style="text-align: center;">
+               <div class="row">
+                  <div class="title" style="margin-bottom: 10px;"></div>
+                  <br>
+                     <h1>Category</h1>
+                                                    
+                     <br><a href="answerBoard.jsp" title="gloomy">우울</a><br>
+                                       
+                     <br><a href="answerBoard.jsp" title="career">진로</a><br>
+                     
+                     <br><a href="answerBoard.jsp" title="relationship">관계</a><br>
+                     
+                     <br><a href="answerBoard.jsp" title="freeworry">자유</a><br>
+                                   
                </div>
             </div>
-            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-               <div class="bimg">
-                  <img src="<%= bvo.getBurl()%>" style="width:100%; height:90%;">
-               </div>
-
-            </div>
-
-
-            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-               <div class="todaybook" style="height:810px; margin-top:0; overflow-y: scroll;">
-                  <h1><%= bvo.getBstory() %></h1>
-               </div>
-            </div>     
-            <input type="button" class="btn btn-primary" style="margin-left: 500px; margin-top:50px;" onclick="buyOpen()" value="구매하러 가기"/>
          </div>
       </div>
    </div>
-
    <!-- 여기까지 작성 -->
 
    <div class="hero-section">
@@ -122,7 +104,7 @@
          </div>
       </div>
    </div>
-   
+
    <!-- footer-->
    <div class="footer">
       <div class="container">
@@ -153,11 +135,5 @@
    <script src="js/bootstrap.min.js"></script>
    <script src="js/menumaker.js"></script>
    <script src="js/navigation.js" type="text/javascript"></script>
-   
-  	<script type="text/javascript">
-  		function buyOpen(){
-  			var myWindow = window.open("<%= bvo.getBuyurl() %>");
-  		}
-  	</script>
 </body>
 </html>

@@ -36,7 +36,7 @@
          <div class="row">
             <div class="col-lg-4 col-md-4 col-sm-2 col-xs-2">
                <h1 class="active">
-                  <a href="index.html" title="Home"><img src="./images/logo.png"
+                  <a href="goMain" title="Home"><img src="./images/logo.png"
                      width="80px" height="80px"></a>
                </h1>
             </div>
@@ -45,7 +45,7 @@
                   <div id="navigation">
                      <ul>
                         <li><a href="writeBoard.jsp" title="Write">글 쓰기</a></li>
-                        <li><a href="answerBoard.jsp" title="Answer">답변하기</a></li>
+                        <li><a href="category.jsp" title="Answer">답변하기</a></li>
                         <li><a href="gardenBoard.jsp" title="MyGarden">나의 화원</a></li>
                         <li><a title="MyPage">나의 쉼터</a>
                            <ul>
@@ -78,18 +78,11 @@
                <div class="row">
                   <div class="title" style="margin-bottom: 10px;"></div>
                   <br>
-                     <h1>Category</h1>
+                     <h1>답장하기</h1>
                   
                   
                      
-                     <br><a href="writeAnswerBoard.jsp" title="gloomy">우울</a><br>
-                                       
-                     <br><a href="writeAnswerBoard.jsp" title="career">진로</a><br>
                      
-                     <br><a href="writeAnswerBoard.jsp" title="relationship">관계</a><br>
-                     
-                     <br><a href="writeAnswerBoard.jsp" title="freeworry">자유</a><br>
-
                      
                   
                </div>
