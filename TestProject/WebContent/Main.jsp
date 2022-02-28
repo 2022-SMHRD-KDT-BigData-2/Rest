@@ -156,10 +156,9 @@
 
 
 				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-					<div class="todaybook">
-						<h1># ø¿¥√¿« √•</h1>
-						
-						<span><%= bvo.getBname() %></span>
+					<div class="todaybook" style="padding:30px;">
+						<h1 ># ø¿¥√¿« √•</h1>	
+						<a href="book.jsp"><img src="<%= bvo.getBurl()%>" style="width:100%; height:88%;"></a><br>
 					</div>
 					<!-- »≠ø¯ -->
 				</div>

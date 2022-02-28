@@ -255,6 +255,7 @@ div.todaybook {
 	height: 500px;
 	border: 4.5px solid #e1e5fa;
 	border-radius: 30px;
+	padding: 30px;
 }
 
 div.drawgraph {
