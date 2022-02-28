@@ -22,7 +22,6 @@ public class writeVO {
 		this.delmsg = delmsg;	
 	}
 	
-	
 	public writeVO(String id, String category, String title, String wcontent) {
 		this.id = id;
 		this.category = category;

@@ -36,7 +36,7 @@
          <div class="row">
             <div class="col-lg-4 col-md-4 col-sm-2 col-xs-2">
                <h1 class="active">
-                  <a href="goMain" title="Home"><img src="./images/logo.png"
+                  <a href="index.html" title="Home"><img src="./images/logo.png"
                      width="80px" height="80px"></a>
                </h1>
             </div>
@@ -50,7 +50,7 @@
                         <li><a title="MyPage">나의 쉼터</a>
                            <ul>
                               <li><a href="checkBoard.jsp" title="Check">확인하기</a></li>
-                              <li><a href="logout" title="Logout">로그아웃</a></li>
+                              <li><a href="Main.jsp" title="Logout">로그아웃</a></li>
                            </ul></li>
                      </ul>
                   </div>
@@ -70,61 +70,68 @@
    </div>
 
    <!-- 여기서부터 작성 -->
-   <div class="category">
+   <div class="answerBoard">
       <div class="container">
          <div class="input-form-backgroud row">
             <div class="input-form col-md-12 mx-auto"
                style="text-align: center;">
                <div class="row">
-                  <form action="answer" method="post">
-
-                     <br><a href=>우울</a><br>
-                      
-                     <br><a href=>진로</a><br>
+                  <div class="title" style="margin-bottom: 10px;"></div>
+                  <br>
+                     <h1>Category</h1>
+                  
+                  
                      
-                     <br><a href=>관계</a><br>
-                      
-                     <br><a href=>자유</a><br>
+                     <br><a href="writeAnswerBoard.jsp" title="gloomy">우울</a><br>
+                                       
+                     <br><a href="writeAnswerBoard.jsp" title="career">진로</a><br>
+                     
+                     <br><a href="writeAnswerBoard.jsp" title="relationship">관계</a><br>
+                     
+                     <br><a href="writeAnswerBoard.jsp" title="freeworry">자유</a><br>
 
-
-                  </form>
+                     
+                  
                </div>
             </div>
          </div>
       </div>
-      <!-- 여기까지 작성 -->
+   </div>
+   <!-- 여기까지 작성 -->
 
-      <div class="hero-section">
-         <div class="container">
-            <div class="row">
-               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+   <div class="hero-section">
+      <div class="container">
+         <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
 
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <!-- footer-->
+   <div class="footer">
+      <div class="container">
+         <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+               <div class="footer-widget">
+                  <img src="./images/instagram.png" width="60px" height="60px"
+                     alt="" hspace=10> <img src="./images/facebook.png"
+                     width="60px" height="60px" alt="" hspace=10> <img
+                     src="./images/twitter.png" width="60px" height="60px" alt=""
+                     hspace=10>
+               </div>
+               <br>
+               <div class="widget-title">
+                  <p>Info Support Marketing</p>
+                  <p>Terms of Use Privacy Policy</p>
+                  <p>@2022 대화해조</p>
                </div>
             </div>
          </div>
       </div>
-      
- 	<!-- footer-->
-		<div class="footer">	
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-						<div class="footer-widget">
-							<img src="./images/instagram.png" width="60px" height="60px" alt="" hspace=10> 
-							<img src="./images/facebook.png" width="60px" height="60px" alt="" hspace=10> 
-							<img src="./images/twitter.png" width="60px" height="60px" alt="" hspace=10>
-						</div>
-						<br>
-						<div class="widget-title">
-							<p>Info Support Marketing</p>
-							<p>Terms of Use Privacy Policy</p>
-							<p>@2022 대화해조</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	<!-- /.footer-->
+   </div>
+   <!-- /.footer-->
 
    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
    <script src="js/jquery.min.js"></script>

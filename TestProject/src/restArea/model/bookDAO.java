@@ -29,4 +29,11 @@ public class bookDAO {
 		session.close(); 
 		return bvo; 	
 	}
+
+	public bookVO recommBook() {
+		SqlSession session = sqlSessionFactory.openSession(); 
+		bookVO bvo = session.selectOne("recommBook"); 
+		session.close(); 
+		return bvo; 	
+	}
 }

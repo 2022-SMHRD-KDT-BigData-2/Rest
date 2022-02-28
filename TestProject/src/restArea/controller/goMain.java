@@ -15,6 +15,8 @@ import restArea.model.bookVO;
 import restArea.model.recommDAO;
 import restArea.model.recommVO;
 import restArea.model.userVO;
+import restArea.model.writeDAO;
+import restArea.model.writeVO;
 
 // goMain
 
@@ -28,6 +30,7 @@ public class goMain extends HttpServlet {
 		
 		recommDAO rdao = new recommDAO();
 		bookDAO bdao = new bookDAO();
+		//writeDAO wdao = new writeDAO();
 		
 			
 		if(vo != null) {
@@ -43,7 +46,10 @@ public class goMain extends HttpServlet {
 		// 오늘의 책
 		bookVO bvo = bdao.todayBook();
 		request.setAttribute("bvo", bvo);
-	
+		
+		// 그래프
+		//writeVO wvo = wdao.drawGraph();
+		
 			
 		RequestDispatcher rd = request.getRequestDispatcher("Main.jsp");
 		rd.forward(request, response);

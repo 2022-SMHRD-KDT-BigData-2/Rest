@@ -304,6 +304,10 @@ div.drawgraph {
 	margin-top: 30px;
 }
 
+.todaybook::-webkit-scrollbar {
+	display:none 
+}
+
 select {
 	width: 100px;
 	padding: .3em .5em;

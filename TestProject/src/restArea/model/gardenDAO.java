@@ -25,17 +25,17 @@ public class gardenDAO {
    
    // -----------------------------------------------------------------------------
 
-public String garden(gardenVO vo){
+public String gardenBoard(gardenVO vo){
       
       SqlSession session = sqlSessionFactory.openSession();
       
-      String gcnt = session.selectOne("selectMessage",vo);
+      String gcnt = session.selectOne("gardenBoard",vo);
       
       session.close();
       
-      return gcnt;
-   }   
    
-}
+      return gcnt;
+	}
 
    
+}

@@ -23,11 +23,17 @@ public class writeDAO {
 	
 	// -----------------------------------------------------------------------------
 	
-	public int write(writeVO vo) {
-		
+	public int write(writeVO vo) {	
 		SqlSession session = sqlSessionFactory.openSession(true);
 		int cnt = session.insert("write", vo);
 		session.close();
 		return cnt;
+	}
+
+	public writeVO drawGraph() {
+		SqlSession session = sqlSessionFactory.openSession(); 
+		writeVO dvo = session.selectOne("drawGraph"); 
+		session.close(); 
+		return dvo; 	
 	}
 }

@@ -29,6 +29,19 @@
 		values(write_seq.nextval, #{id}, #{category}, sysdate, #{title}, #{wcontent})
 	</insert>
 	
+	<select id="recommBook" resultType="restArea.model.bookVO">
+		select * from book where book_seq = (select TO_CHAR(sysdate, 'dd') from dual)
+	</select>
+	
+	<select id="garden" parameterType="restArea.model.gardenVO" 
+	resultType="restArea.model.gardenVO">
+		select gcount from user_info where id = #{id}
+	</select>
+	
+	<!-- <select id="drawGraph" resultType="restArea.model.writeVO">
+		select count(category) from write_board group by category
+	</select> -->
+	
 	
 
 </mapper>

@@ -33,13 +33,7 @@ public class write extends HttpServlet {
 		
 		writeDAO dao = new writeDAO();
 		int cnt = dao.write(vo);
-		
-		
-		if(cnt > 0) {
-			System.out.println("성공");
-		}else {
-			System.out.println("실패");
-		}
+
 		response.sendRedirect("goMain");	
 	}
 }

@@ -36,6 +36,7 @@
 <body>
  	<%
 		userVO vo = (userVO)session.getAttribute("vo");
+ 		bookVO bvo = (bookVO)request.getAttribute("bvo");
 	%>
 	<div class="header navbar-fixed-top">
 		<div class="container">
@@ -87,26 +88,26 @@
       <div class="container">
          <div class="row">
             <div class="col-lg-12 col-md-12  col-sm-12  col-xs-12 ">
-               <div class="tag">
-                  <h1>책이름</h1>
+               <div style="border-bottom: 1px solid #372d2b; margin-bottom:50px">
+                  <h1 style="font-size: 40px;"><%= bvo.getBname()%></h1>
+                  
                </div>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-               <div class="drawrecomm">
-                  <h1>책사진</h1>
+               <div class="bimg">
+                  <img src="<%= bvo.getBurl()%>" style="width:100%; height:90%;">
                </div>
 
             </div>
 
 
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-               <div class="todaybook">
-                  <h1>책내용</h1>
+               <div class="todaybook" style="height:810px; margin-top:0; overflow-y: scroll;">
+                  <h1><%= bvo.getBstory() %></h1>
                </div>
             </div>
 
-            <input type="submit" class="btn btn-primary"
-               style="margin-left: 550px" value="확인">
+            <a href="<%= bvo.getBuyurl() %>"><input type="button" class="btn btn-primary" style="margin-left: 500px; margin-top:50px;" value="구매하러 가기"></a>
          </div>
       </div>
    </div>
@@ -122,11 +123,7 @@
          </div>
       </div>
    </div>
-   </div>
-   </div>
-   </div>
-   </div>
-   </div>
+   
    <!-- footer-->
    <div class="footer">
       <div class="container">
@@ -157,5 +154,7 @@
    <script src="js/bootstrap.min.js"></script>
    <script src="js/menumaker.js"></script>
    <script src="js/navigation.js" type="text/javascript"></script>
+   
+  
 </body>
 </html>
