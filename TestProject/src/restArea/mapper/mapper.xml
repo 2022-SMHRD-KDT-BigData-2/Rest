@@ -33,10 +33,10 @@
 		select * from book where book_seq = (select TO_CHAR(sysdate, 'dd') from dual)
 	</select>
 	
-	<select id="garden" parameterType="restArea.model.gardenVO" 
-	resultType="restArea.model.gardenVO">
-		select gcount from user_info where id = #{id}
-	</select>
+   <select id="garden" resultType="restArea.model.gardenVO">
+      select * from user_info where id = #{id}
+   </select>
+
 	
 	<select id="viewBoard" resultType="restArea.model.writeVO">
       select * from write_board where id=#{id}

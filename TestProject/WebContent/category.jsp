@@ -76,18 +76,11 @@
             <div class="input-form col-md-12 mx-auto"
                style="text-align: center;">
                <div class="row">
-                  <div class="title" style="margin-bottom: 10px;"></div>
-                  <br>
-                     <h1>Category</h1>
-                                                    
-                     <br><a href="answerBoard.jsp" title="gloomy">우울</a><br>
-                                       
-                     <br><a href="answerBoard.jsp" title="career">진로</a><br>
-                     
-                     <br><a href="answerBoard.jsp" title="relationship">관계</a><br>
-                     
-                     <br><a href="answerBoard.jsp" title="freeworry">자유</a><br>
-                                   
+                  <div class="title" style="margin-bottom: 10px;"></div>                                                 
+                     <a href="answerBoard.jsp"><button type="button" class="btn btn-primary" value="1">우울</button></a><br>
+                     <a href="answerBoard.jsp"><button type="button" class="btn btn-primary" value="2">진로</button></a><br>
+                     <a href="answerBoard.jsp"><button type="button" class="btn btn-primary" value="3">관계</button></a><br>
+                     <a href="answerBoard.jsp"><button type="button" class="btn btn-primary" value="4">자유</button></a>                         
                </div>
             </div>
          </div>
