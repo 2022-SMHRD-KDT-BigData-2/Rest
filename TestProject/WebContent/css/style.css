@@ -432,6 +432,10 @@ div.recontent {
    display: none
 }
 
+.drawrecomm::-webkit-scrollbar{
+   display: none
+}
+
 .atitle{
 	background-color: #f2f2f2; 
 	border-radius:20px; 
