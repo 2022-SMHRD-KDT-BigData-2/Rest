@@ -112,7 +112,7 @@
 </head>
  
  <body class="dimmed">
- <form action="Main.jsp" method="post">
+ <form action="goMain" method="post">
  	<div class="popup">
         <div class="title">신고 누적 안내</div>
         <div class="content">
@@ -120,8 +120,7 @@
             <p> 다음에 신고 당하면 3일 계정 정지당합니다. </p>
         </div>
         <div class="cmd">
-            <input type="submit" name="btnclose" class="btn btn-primary" style="height:50px; font-size:20px;" value="닫기">
-            <!-- <input type="submit" class="btn btn-primary" style="margin-left:400px;" value="가입 완료"> -->
+            <input type="submit" name="btnclose" class="btn btn-primary" style="height:50px; font-size:20px;" value="닫기">    
         </div>
     </div>
   </form>

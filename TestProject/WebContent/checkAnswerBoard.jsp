@@ -1,3 +1,6 @@
+<%@page import="java.util.List"%>
+<%@page import="restArea.model.answerVO"%>
+<%@page import="restArea.model.writeVO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
    pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -31,6 +34,11 @@
 </head>
 
 <body>
+	<%
+		writeVO vo =  (writeVO)request.getAttribute("wvo");
+		answerVO avo =  (answerVO)request.getAttribute("vo"); 
+		List<answerVO> list = (List<answerVO>) request.getAttribute("list");      
+	%>
    <div class="header navbar-fixed-top">
       <div class="container">
          <div class="row">
@@ -49,7 +57,7 @@
                         <li><a href="garden" title="MyGarden">나의 화원</a></li>
                         <li><a title="MyPage">나의 쉼터</a>
                            <ul>
-                              <li><a href="checkBoard.jsp" title="Check">확인하기</a></li>
+                              <li><a href="check" title="Check">확인하기</a></li>
                               <li><a href="Main.jsp" title="Logout">로그아웃</a></li>
                            </ul></li>
                      </ul>
@@ -75,30 +83,28 @@
          <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                <div class="mystory">
-                  <h1>내가 쓴글 aaaaaaa aaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaa
-                     aaaaaaaaaaaaaaaaaaaaaaaaaaaaadddddddddddddddddddddddddd
-                     dddddddddddddddaㅎㅇ ㅎㅎㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗ
-                     ㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㅀㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅗㅗㅗㅗㅗㅗㅗㅗㅗ</h1>
+                  <h1><%=vo.getWcontent() %></h1>
                </div>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                <div class="mchanswer">
-                  <div class="yourstory">
-                     <h1>답axxxxxxxxxxxxxxdxxxxxxddxxxxxxxxxxxxxxxxxxxxxxxxxffffffffffxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-                        xxxxxxxxxxxxxxxxxxxxggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg글</h1>
+                <%for (answerVO uvo : list) { %>
+                  <div class="yourstory" style="height:200px;">
+                     <h1><%=uvo.getAcontent() %></h1>
                      <span class="chreport" style="display: flex;">
-                        <form action="deleteMessage.jsp">
+                        <form action="deleteMessage.jsp" method="post">
                            <input type="submit" name="btnclose" class="btn btn-primary"
                               style="height: 40px; font-size: 16px; margin-left: 300px; padding-right: 20px; padding-left: 20px; padding-top: 12px;"
                               value="신고">
                         </form>
-                        <form action="symMessage.jsp">
+                        <form action="symMessage.jsp" method="post">
                            <input type="submit" name="btnclose" class="btn btn-primary"
                               style="height: 40px; font-size: 16px; margin-left: 15px; padding-right: 20px; padding-left: 20px; padding-top: 12px;"
                               value="공감">
                         </form>
                      </span>
                   </div>
+                    <%} %>
                </div>
             </div>
          </div>

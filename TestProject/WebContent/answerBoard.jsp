@@ -63,15 +63,6 @@
          </div>
       </div>
    </div>
-   <div class="hero-section">
-      <div class="container">
-         <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
-
-            </div>
-         </div>
-      </div>
-   </div>
 
    <!-- 여기서부터 작성 -->
  	<div class="space-medium">
@@ -79,18 +70,18 @@
 			<div class="input-form-backgroud row">
 				<div class="input-form col-md-12 mx-auto">
 					<div class="row">	
-						<h1 class="joinTitle">당신의 이야기를 보내주세요</h1>
+						<h1 class="joinTitle" style="padding-left:15px;">당신의 이야기를 보내주세요</h1>
 						
 						<div class="atitle">				
 						<span><%= avo.getTitle() %></span>
 						</div>
 						
-						<div class="acontent">
+						<div class="acontent" style="overflow-y: scroll;">
 						<span> <%= avo.getWcontent() %></span>
 						</div>
 									
 						<form action="answer" method="post">
-							<a href="answer?write_seq=<%=avo.getWrite_seq()%>"></a>	
+							<input type="hidden" name="write_seq" value="<%= avo.getWrite_seq()%>">						
 							<textarea class="form-control" placeholder="글 내용" name="acontent" style="height: 350px; font-size: 25px; color: black; margin-bottom : 20px;"></textarea>
 							<input type="submit" class="btn btn-primary" style="margin-left: 430px" value="전송">
 						</form>

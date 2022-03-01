@@ -163,13 +163,12 @@
 
 				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
 					<div class="monthBook">
-						<h1># 이달의 책</h1>
-						<% for(bookVO mvo : list){ %>
-						
-						
-						<span style="font-size:28px; margin-top:30px;">----- <%= mvo.getBook_seq() %>위 -----</span><br>
-						<span> <%= mvo.getBname() %></span><br>
+						<h1 ># 이달의 책</h1>
+						<div style="height:390px; border:4px solid white; border-radius:20px; padding:10px; padding-top:30px;">
+						<% for(bookVO mvo : list){ %>										
+							<h2 style="margin-bottom:40px;"><%=mvo.getBook_seq()%>위 <%= mvo.getBname()%></h2>			
 						<% } %>
+						</div>
 					</div>
 				</div>
 			</div>

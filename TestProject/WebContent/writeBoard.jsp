@@ -59,15 +59,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="hero-section">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
 
-				</div>
-			</div>
-		</div>
-	</div>
 
 	<!-- 여기서부터 작성 -->
 
@@ -77,7 +69,7 @@
 				<div class="input-form col-md-12 mx-auto">
 					<div class="row">
 						<form action="write" method="post">
-							<h1 class="joinTitle">당신의 이야기를 보내주세요</h1>
+							<h1 class="joinTitle" style="padding-left:15px;">당신의 이야기를 보내주세요</h1>
 
 							<span class="sendwrite"> 
 							<select id="category" name="category" style="width: 100px; height: 40px; font-size: 20px; margin-top: 5px;">

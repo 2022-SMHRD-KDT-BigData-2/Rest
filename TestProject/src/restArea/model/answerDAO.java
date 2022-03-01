@@ -40,4 +40,11 @@ public class answerDAO {
 		return list;
 	}
 
+	public List<answerVO> mycheckAnswer(answerVO vo) {
+		SqlSession session = sqlSessionFactory.openSession();
+		List<answerVO> list = session.selectList("mycheckAnswer", vo);
+		session.close();
+		return list;
+	}
+
 }

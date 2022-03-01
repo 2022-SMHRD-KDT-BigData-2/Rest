@@ -28,6 +28,12 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js "></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js "></script>
 <![endif]-->
+<style>
+	button{
+		width:800px;
+		height: 50px; 			
+	}
+</style>
 </head>
 
 <body>
@@ -74,17 +80,21 @@
    <div class="answerBoard">
       <div class="container">
          <div class="input-form-backgroud row">
-            <div class="input-form col-md-12 mx-auto"
-               style="text-align: center;">
+            <div class="input-form col-md-12 mx-auto" style="text-align: center;">
                <div class="row">
-                  <div class="title" style="margin-bottom: 10px;"></div>  
-                  <form action="viewAnswer" method="post">                                               
-                     <button type="submit" class="btn btn-primary" id="category" name="category" value="1">우울</button><br>
-                     <button type="submit" class="btn btn-primary" id="category" name="category" value="2">진로</button><br>
-                     <button type="submit" class="btn btn-primary" id="category" name="category" value="3">관계</button><br>
-                     <button type="submit" class="btn btn-primary" id="category" name="category" value="4">자유</button>  
-                  </form>                       
-               </div>
+               		<h1 class="joinTitle" style="text-align:left; padding-left:15px;">위로하고 싶은 내용을 선택해주세요</h1>
+	                  <div class="title" style="margin-bottom: 10px;"></div>  
+	                  <form action="viewAnswer" method="post">                                               
+	                     <button type="submit" class="btn btn-primary" id="category" name="category" value="1"
+	                     style="font-size: 20px; border: 4px solid #4361ee;  background-color: white;  color:black; margin-bottom:30px; padding-top:10px; margin-top:30px;">우울</button><br>
+	                     <button type="submit" class="btn btn-primary" id="category" name="category" value="2"
+	                     style="font-size: 20px; border: 4px solid #4361ee;  background-color: white;  color:black; margin-bottom:30px; padding-top:10px;">진로</button><br>
+	                     <button type="submit" class="btn btn-primary" id="category" name="category" value="3"
+	                     style="font-size: 20px; border: 4px solid #4361ee;  background-color: white;  color:black; margin-bottom:30px; padding-top:10px;">관계</button><br>
+	                     <button type="submit" class="btn btn-primary" id="category" name="category" value="4"
+	                     style="font-size: 20px; border: 4px solid #4361ee;  background-color: white;  color:black; margin-bottom:30px; padding-top:10px;">자유</button>  
+	                  </form>                       
+	               </div>
             </div>
          </div>
       </div>
