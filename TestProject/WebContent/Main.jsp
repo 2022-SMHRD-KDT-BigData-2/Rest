@@ -1,3 +1,4 @@
+<%@page import="java.util.List"%>
 <%@page import="restArea.model.recommVO"%>
 <%@page import="restArea.model.bookVO"%>
 <%@page import="restArea.model.userVO"%>
@@ -38,6 +39,7 @@
 		userVO vo = (userVO)session.getAttribute("vo");
 		recommVO rvo = (recommVO)request.getAttribute("rvo"); 
 		bookVO bvo = (bookVO)request.getAttribute("bvo");
+		List<bookVO> list = (List<bookVO>)request.getAttribute("list");
 	%>
 	<div class="header navbar-fixed-top">
 		<div class="container">
@@ -59,7 +61,7 @@
 							<ul>
 								<li><a href="writeBoard.jsp" title="Write">글 쓰기</a></li>
 								<li><a href="category.jsp" title="Answer">답변하기</a></li>
-								<li><a href="gardenBoard.jsp" title="MyGarden">나의 화원</a></li>
+								<li><a href="garden" title="MyGarden">나의 화원</a></li>
 								<li><a title="MyPage">나의 쉼터</a>
 									<ul>
 										<li><a href="check" title="Check">확인하기</a></li>
@@ -134,13 +136,11 @@
 						<p> ♥ 힐링하세요 ♥ </p>
 						<br>
 					</div>
-					<!-- 소개글 -->
 				</div>
 
 				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
 					<div class="makegarden">
 					</div>
-					<!-- 화원 -->
 				</div>
 			</div>
 
@@ -151,26 +151,26 @@
 						<h1># 오늘의 글</h1><br>					
 							<span style="font-size:30px;"> <%= rvo.getRcontecnt() %> </span>	
 					</div>
-					<!-- 화원 -->
 				</div>
 
 
 				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-					<div class="todaybook" style="padding:30px;">
-						<h1 ># 오늘의 책</h1>	
+					<div class="todaybook" style="margin-bottom:5px;">
+						<h1># 오늘의 책</h1>	
 						<a href="bookRecomm"><img src="<%= bvo.getBurl()%>" style="width:100%; height:88%;"></a><br>
 					</div>
-					<!-- 화원 -->
 				</div>
 
 				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-					<div class="drawgraph">
-						<h1>그래프</h1>
-						<div style="">
-							<canvas id="myChart"></canvas>
-						</div>
+					<div class="monthBook">
+						<h1># 이달의 책</h1>
+						<% for(bookVO mvo : list){ %>
+						
+						
+						<span style="font-size:28px; margin-top:30px;">----- <%= mvo.getBook_seq() %>위 -----</span><br>
+						<span> <%= mvo.getBname() %></span><br>
+						<% } %>
 					</div>
-					<!-- 화원 -->
 				</div>
 			</div>
 		</div>
@@ -212,67 +212,5 @@
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/menumaker.js"></script>
 	<script src="js/navigation.js" type="text/javascript"></script>
-	
-	<!-- 그래프 -->
-		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-	<script>
-		function load() {
-			$.ajax({
-				url : 'EX02_json',
-				type : 'post',
-				dataType : 'json',
-				success : function(res) {
-					drawChart(res);
-				},
-				error : function() {
-					alert("error")
-				}
-			});
-		}
-
-		function drawChart(json) {
-			const ctx = document.getElementById('myChart').getContext('2d');
-			// canvas : 그림판 div
-
-			// javascript 객체로 세부 설정을 정의
-			const myChart = new Chart(ctx, {
-				type : 'bar', // 차트의 종류
-				data : { // 차트를 그리는 설정
-					//labels : [ 'Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange' ], // 컬럼 이름
-					datasets : [ {
-						label : '# of Votes', // 제목
-						data : json, // 데이터
-						backgroundColor : [ 'rgba(255, 99, 132, 0.2)',
-								'rgba(54, 162, 235, 0.2)',
-								'rgba(255, 206, 86, 0.2)',
-								'rgba(75, 192, 192, 0.2)',
-								'rgba(153, 102, 255, 0.2)',
-								'rgba(255, 159, 64, 0.2)' ], // 각 bar 기둥의 색깔
-						borderColor : [ 'rgba(255, 99, 132, 1)',
-								'rgba(54, 162, 235, 1)',
-								'rgba(255, 206, 86, 1)',
-								'rgba(75, 192, 192, 1)',
-								'rgba(153, 102, 255, 1)',
-								'rgba(255, 159, 64, 1)' ], // 테두리 색
-						borderWidth : 1
-					// 테두리 두께
-					} ]
-				},
-				options : {
-					scales : {
-						y : {
-							beginAtZero : true
-						}
-					},
-
-					// 우리가 넣어주는 json 데이터에서 꺼내서 사용하게끔 지정
-					parsing : {
-						xAxisKey : 'name',
-						yAxisKey : 'score'
-					}
-				}
-			});
-		}
-	</script>
 </body>
 </html>

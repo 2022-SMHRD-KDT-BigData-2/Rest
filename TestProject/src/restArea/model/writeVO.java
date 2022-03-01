@@ -10,10 +10,12 @@ public class writeVO {
 	private String wcontent;
 	private String joymsg;
 	private String delmsg;
-	
-	public writeVO() {}
-	
-	public writeVO(int write_seq, String id, String category, String wdate, String title, String wcontent, String joymsg, String delmsg) {
+
+	public writeVO() {
+	}
+
+	public writeVO(int write_seq, String id, String category, String wdate, String title, String wcontent,
+			String joymsg, String delmsg) {
 		this.write_seq = write_seq;
 		this.id = id;
 		this.category = category;
@@ -21,18 +23,28 @@ public class writeVO {
 		this.title = title;
 		this.wcontent = wcontent;
 		this.joymsg = joymsg;
-		this.delmsg = delmsg;	
+		this.delmsg = delmsg;
 	}
-	
+
 	public writeVO(String id, String category, String title, String wcontent) {
 		this.id = id;
 		this.category = category;
 		this.title = title;
 		this.wcontent = wcontent;
 	}
-	
+
 	public writeVO(String id) {
 		this.id = id;
+	}
+
+	public writeVO(String id, int write_seq) {
+		this.id = id;
+		this.write_seq = write_seq;
+	}
+
+	public writeVO(String id, String category) {
+		this.id = id;
+		this.category = category;
 	}
 
 	public int getWrite_seq() {

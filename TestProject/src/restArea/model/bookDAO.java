@@ -1,6 +1,7 @@
 package restArea.model;
 
 import java.io.InputStream;
+import java.util.List;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -35,5 +36,12 @@ public class bookDAO {
 		bookVO bvo = session.selectOne("recommBook"); 
 		session.close(); 
 		return bvo; 	
+	}
+
+	public List<bookVO> monthBook() {
+		SqlSession session = sqlSessionFactory.openSession();
+		List<bookVO> list = session.selectList("monthBook"); 
+		session.close(); 
+		return list; 	
 	}
 }

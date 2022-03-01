@@ -22,39 +22,19 @@ public class garden extends HttpServlet {
 
    protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
       
-      
-      // 1.파라미터 수집
-      
       HttpSession session= request.getSession();
-      
-      
+        
       userVO uvo= (userVO)session.getAttribute("vo");
       String id = uvo.getId();
-      
-      //gardenVO vo = new gardenVO(id);
+     
       gardenDAO dao = new gardenDAO();
       
       gardenVO vo = dao.garden(id);
-      
-      //gardenVO vo = dao.gardenBoard(id);
-      
-      
+   
       if(vo!=null) {
-         session.setAttribute("gcnt", id);   
-         response.sendRedirect("gardenBoard.jsp");
-               
+         session.setAttribute("gcnt", vo);   
+         response.sendRedirect("gardenBoard.jsp");          
       }
-//      
-//      gardenDAO dao = new gardenDAO();
-//      
-//      String gcnt = dao.selectOne(id);
-//      
-//      gardenVO vo = new gardenVO(gcnt);
-//      
-//      if(vo!=null) {
-//         session.setAttribute("gcnt", vo);         
-//      }
-      
-      
+  
    }
 }

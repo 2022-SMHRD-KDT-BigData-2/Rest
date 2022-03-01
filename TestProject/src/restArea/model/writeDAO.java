@@ -8,8 +8,6 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
-
-
 // write_board DAO (±€ ¿€º∫)
 public class writeDAO {
 	private static SqlSessionFactory sqlSessionFactory;
@@ -46,11 +44,19 @@ public class writeDAO {
 		session.close();
 		return list;
 	}
-	public List<writeVO> drawGraph() {
-	      SqlSession session = sqlSessionFactory.openSession();
-	      List<writeVO> glist = session.selectList("drawGraph");
-	      session.close();
-	      return glist;
-	   }
+
+	public writeVO viewAnswer(writeVO vo) {
+		SqlSession session = sqlSessionFactory.openSession();
+		writeVO avo = session.selectOne("viewAnswer", vo);
+		session.close();
+		return avo;
+	}
+
+	public writeVO mycheckWrite(writeVO vo) {
+		SqlSession session = sqlSessionFactory.openSession();
+		writeVO wvo = session.selectOne("mycheckWrite", vo);
+		session.close();
+		return wvo;
+	}
 
 }

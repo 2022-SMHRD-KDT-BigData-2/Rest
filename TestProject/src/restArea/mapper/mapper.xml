@@ -36,24 +36,33 @@
    <select id="garden" resultType="restArea.model.gardenVO">
       select * from user_info where id = #{id}
    </select>
-
 	
 	<select id="viewBoard" resultType="restArea.model.writeVO">
       select * from write_board where id=#{id}
-   </select>
+    </select>
    
-   <select id="date" resultType="int" >
+    <select id="date" resultType="int" >
 		select *  from write_board where id=#{id} and sysdate-wdate>14
 	</select>
 	
-	<select id="drawGraph" resultType="int">
-       select count(category) from write_board group by category
-   </select>
+	<select id="monthBook" resultType="restArea.model.bookVO">
+		select * from book where book_seq between 1 and 5
+	</select>
 	
-<!-- 	<select id="drawGraph" resultType="restArea.model.writeVO">
-		select count(category) from write_board group by category
-	</select> 
-	 -->
+	<select id="viewAnswer" resultType="restArea.model.writeVO">
+		select * 
+		from (select * from write_board where id != #{id} and category = #{category} order by dbms_random.value) 
+		where rownum = 1
+	</select>
 	
+	<insert id="answer" parameterType="restArea.model.answerVO">
+		insert into answer_board(answer_seq, id, write_seq, acontent)
+		values(answer_seq.nextval, #{id}, #{write_seq}, #{acontent})	
+	</insert>
+
+	<select id="mycheckWrite" parameterType="restArea.model.writeVO"  resultType="restArea.model.writeVO">
+      select wcontent from write_board where id=#{id} and write_seq=#{write_seq}
+    </select>
+
 
 </mapper>

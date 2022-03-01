@@ -258,12 +258,13 @@ div.todaybook {
 	padding: 30px;
 }
 
-div.drawgraph {
+div.monthBook {
 	margin-top: 40px;
 	background-color: #e1e5f2;
 	width: 100%;
 	height: 500px;
 	border-radius: 30px;
+	padding: 30px;
 }
 
 .joinTitle {
@@ -425,6 +426,24 @@ div.recontent {
 }
 .mchanswer::-webkit-scrollbar{
    display: none
+}
+
+.atitle{
+	background-color: #f2f2f2; 
+	border-radius:20px; 
+	margin-top:20px; 
+	height:50px; 
+	padding-top:14px; 
+	padding-left:20px;
+}
+
+.acontent{
+	border: 3px solid #f2f2f2; 
+	border-radius:20px; 
+	margin-top:15px; 
+	height:400px; 
+	margin-bottom:20px; 
+	padding:20px;
 }
 
 /*-------------- align ------------*/

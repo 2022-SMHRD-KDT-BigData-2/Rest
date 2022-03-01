@@ -11,39 +11,32 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import restArea.model.userDAO;
+import restArea.model.answerDAO;
+import restArea.model.answerVO;
 import restArea.model.userVO;
 import restArea.model.writeDAO;
 import restArea.model.writeVO;
 
-
-@WebServlet("/date")
-public class date extends HttpServlet {
+@WebServlet("/mycheckAnswer")
+public class mycheckAnswer extends HttpServlet {
    private static final long serialVersionUID = 1L;
+
    protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-      
        request.setCharacterEncoding("EUC-KR");
 
          HttpSession session = request.getSession();
-         userVO uvo = (userVO) session.getAttribute("vo");
 
-         String id = uvo.getId();
-      
-         writeDAO dao = new writeDAO();
-         List<writeVO> list = dao.viewBoard(id);
+       // int write_seq = Integer.parseInt(request.getParameter("write_seq"));
+         answerDAO dao = new answerDAO();
+         List<answerVO> list = dao.mycheckAnswer();
+
          
          System.out.println(list);
          
          request.setAttribute("list", list);
          
-         System.out.println(list);
-         
-         RequestDispatcher rd = request.getRequestDispatcher("checkBoard.jsp");
+         RequestDispatcher rd = request.getRequestDispatcher("checkAnswerBoard.jsp");
          rd.forward(request, response);
-   
-   
-
-      
    }
 
 }

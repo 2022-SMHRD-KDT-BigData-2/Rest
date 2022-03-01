@@ -1,3 +1,4 @@
+<%@page import="restArea.model.writeVO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
    pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -31,6 +32,9 @@
 </head>
 
 <body>
+	<%
+		writeVO avo = (writeVO)request.getAttribute("avo");
+	%>
    <div class="header navbar-fixed-top">
       <div class="container">
          <div class="row">
@@ -46,7 +50,7 @@
                      <ul>
                         <li><a href="writeBoard.jsp" title="Write">글 쓰기</a></li>
                         <li><a href="category.jsp" title="Answer">답변하기</a></li>
-                        <li><a href="gardenBoard.jsp" title="MyGarden">나의 화원</a></li>
+                        <li><a href="garden" title="MyGarden">나의 화원</a></li>
                         <li><a title="MyPage">나의 쉼터</a>
                            <ul>
                               <li><a href="check" title="Check">확인하기</a></li>
@@ -70,26 +74,32 @@
    </div>
 
    <!-- 여기서부터 작성 -->
-   <div class="answerBoard">
-      <div class="container">
-         <div class="input-form-backgroud row">
-            <div class="input-form col-md-12 mx-auto"
-               style="text-align: center;">
-               <div class="row">
-                  <div class="title" style="margin-bottom: 10px;"></div>
-                  <br>
-                     <h1>답장하기</h1>
-                  
-                  
-                     
-                     
-                     
-                  
-               </div>
-            </div>
-         </div>
-      </div>
-   </div>
+ 	<div class="space-medium">
+		<div class="container">
+			<div class="input-form-backgroud row">
+				<div class="input-form col-md-12 mx-auto">
+					<div class="row">	
+						<h1 class="joinTitle">당신의 이야기를 보내주세요</h1>
+						
+						<div class="atitle">				
+						<span><%= avo.getTitle() %></span>
+						</div>
+						
+						<div class="acontent">
+						<span> <%= avo.getWcontent() %></span>
+						</div>
+									
+						<form action="answer" method="post">
+							<a href="answer?write_seq=<%=avo.getWrite_seq()%>"></a>	
+							<textarea class="form-control" placeholder="글 내용" name="acontent" style="height: 350px; font-size: 25px; color: black; margin-bottom : 20px;"></textarea>
+							<input type="submit" class="btn btn-primary" style="margin-left: 430px" value="전송">
+						</form>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
    <!-- 여기까지 작성 -->
 
    <div class="hero-section">

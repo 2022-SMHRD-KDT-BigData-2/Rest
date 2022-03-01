@@ -46,7 +46,7 @@
                      <ul>
                         <li><a href="writeBoard.jsp" title="Write">글 쓰기</a></li>
                         <li><a href="category.jsp" title="Answer">답변하기</a></li>
-                        <li><a href="gardenBoard.jsp" title="MyGarden">나의 화원</a></li>
+                        <li><a href="garden" title="MyGarden">나의 화원</a></li>
                         <li><a title="MyPage">나의 쉼터</a>
                            <ul>
                               <li><a href="check" title="Check">확인하기</a></li>
@@ -70,22 +70,26 @@
    </div>
 
    <!-- 여기서부터 작성 -->
+
    <div class="answerBoard">
       <div class="container">
          <div class="input-form-backgroud row">
             <div class="input-form col-md-12 mx-auto"
                style="text-align: center;">
                <div class="row">
-                  <div class="title" style="margin-bottom: 10px;"></div>                                                 
-                     <a href="answerBoard.jsp"><button type="button" class="btn btn-primary" value="1">우울</button></a><br>
-                     <a href="answerBoard.jsp"><button type="button" class="btn btn-primary" value="2">진로</button></a><br>
-                     <a href="answerBoard.jsp"><button type="button" class="btn btn-primary" value="3">관계</button></a><br>
-                     <a href="answerBoard.jsp"><button type="button" class="btn btn-primary" value="4">자유</button></a>                         
+                  <div class="title" style="margin-bottom: 10px;"></div>  
+                  <form action="viewAnswer" method="post">                                               
+                     <button type="submit" class="btn btn-primary" id="category" name="category" value="1">우울</button><br>
+                     <button type="submit" class="btn btn-primary" id="category" name="category" value="2">진로</button><br>
+                     <button type="submit" class="btn btn-primary" id="category" name="category" value="3">관계</button><br>
+                     <button type="submit" class="btn btn-primary" id="category" name="category" value="4">자유</button>  
+                  </form>                       
                </div>
             </div>
          </div>
       </div>
    </div>
+   
    <!-- 여기까지 작성 -->
 
    <div class="hero-section">
@@ -128,5 +132,8 @@
    <script src="js/bootstrap.min.js"></script>
    <script src="js/menumaker.js"></script>
    <script src="js/navigation.js" type="text/javascript"></script>
+   
+  
+ 
 </body>
 </html>

@@ -58,7 +58,7 @@
 							<ul>
 								<li><a href="writeBoard.jsp" title="Write">글 쓰기</a></li>
 								<li><a href="category.jsp" title="Answer">답변하기</a></li>
-								<li><a href="gardenBoard.jsp" title="MyGarden">나의 화원</a></li>
+								<li><a href="garden" title="MyGarden">나의 화원</a></li>
 								<li><a title="MyPage">나의 쉼터</a>
 									<ul>
 										<li><a href="check" title="Check">확인하기</a></li>
@@ -95,14 +95,14 @@
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                <div class="bimg">
-                  <img src="<%= bvo.getBurl()%>" style="width:100%; height:90%;">
+                  <img src="<%= bvo.getBurl()%>" style="width:100%; height:800px;">
                </div>
 
             </div>
 
 
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-               <div class="todaybook" style="height:810px; margin-top:0; overflow-y: scroll;">
+               <div class="todaybook" style="height:800px; margin-top:0; overflow-y: scroll;">
                   <h1><%= bvo.getBstory() %></h1>
                </div>
             </div>     

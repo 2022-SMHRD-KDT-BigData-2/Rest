@@ -1,6 +1,7 @@
 package restArea.controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,8 +16,6 @@ import restArea.model.bookVO;
 import restArea.model.recommDAO;
 import restArea.model.recommVO;
 import restArea.model.userVO;
-import restArea.model.writeDAO;
-import restArea.model.writeVO;
 
 // goMain
 
@@ -30,7 +29,6 @@ public class goMain extends HttpServlet {
 		
 		recommDAO rdao = new recommDAO();
 		bookDAO bdao = new bookDAO();
-		//writeDAO wdao = new writeDAO();
 		
 			
 		if(vo != null) {
@@ -47,8 +45,9 @@ public class goMain extends HttpServlet {
 		bookVO bvo = bdao.todayBook();
 		request.setAttribute("bvo", bvo);
 		
-		// 그래프
-		//writeVO wvo = wdao.drawGraph();
+		// 이달의 책
+		List<bookVO> list = bdao.monthBook();
+		request.setAttribute("list", list);
 		
 			
 		RequestDispatcher rd = request.getRequestDispatcher("Main.jsp");
