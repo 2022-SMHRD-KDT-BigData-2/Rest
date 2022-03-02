@@ -35,6 +35,9 @@
 </head>
 
 <body>
+	<audio autoplay controls>
+		<source src="audio/Bolbbalgan.mp3" type="audio/mpeg" >
+	</audio>
 	<%
 		userVO vo = (userVO)session.getAttribute("vo");
 		recommVO rvo = (recommVO)request.getAttribute("rvo"); 
@@ -43,7 +46,7 @@
 	%>
 	<div class="header navbar-fixed-top">
 		<div class="container">
-			<div class="row">
+			<div  class="row">
 				<div class="col-lg-4 col-md-4 col-sm-2 col-xs-2">
 					<h1 class="active">
 						<a href="goMain" title="Home"><img src="./images/logo.png" width="80px" height="80px"></a>
