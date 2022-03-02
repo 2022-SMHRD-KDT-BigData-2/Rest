@@ -86,13 +86,13 @@
 	                  <div class="title" style="margin-bottom: 10px;"></div>  
 	                  <form action="viewAnswer" method="post">                                               
 	                     <button type="submit" class="btn btn-primary" id="category" name="category" value="1"
-	                     style="font-size: 20px; border: 4px solid #4361ee;  background-color: white;  color:black; margin-bottom:30px; padding-top:10px; margin-top:30px;">우울</button><br>
+	                     style="font-size: 25px; border: 4px solid #a2d2ff;  background-color: white;  color:black; margin-bottom:30px; padding-top:7px; margin-top:30px;">우울</button><br>
 	                     <button type="submit" class="btn btn-primary" id="category" name="category" value="2"
-	                     style="font-size: 20px; border: 4px solid #4361ee;  background-color: white;  color:black; margin-bottom:30px; padding-top:10px;">진로</button><br>
+	                     style="font-size: 25px; border: 4px solid #a2d2ff;  background-color: white;  color:black; margin-bottom:30px; padding-top:7px;">진로</button><br>
 	                     <button type="submit" class="btn btn-primary" id="category" name="category" value="3"
-	                     style="font-size: 20px; border: 4px solid #4361ee;  background-color: white;  color:black; margin-bottom:30px; padding-top:10px;">관계</button><br>
+	                     style="font-size: 25px; border: 4px solid #a2d2ff;  background-color: white;  color:black; margin-bottom:30px; padding-top:7px;">관계</button><br>
 	                     <button type="submit" class="btn btn-primary" id="category" name="category" value="4"
-	                     style="font-size: 20px; border: 4px solid #4361ee;  background-color: white;  color:black; margin-bottom:30px; padding-top:10px;">자유</button>  
+	                     style="font-size: 25px; border: 4px solid #a2d2ff;  background-color: white;  color:black; margin-bottom:30px; padding-top:7px;">자유</button>  
 	                  </form>                       
 	               </div>
             </div>

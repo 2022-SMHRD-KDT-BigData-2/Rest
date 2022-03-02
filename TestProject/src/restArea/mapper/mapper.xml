@@ -66,5 +66,15 @@
 	<select id="mycheckAnswer" resultType="restArea.model.answerVO">
 		select * from answer_board where write_seq=#{write_seq}
 	</select>
+	
+	<update id="sumReport" parameterType="restArea.model.userVO">
+		update user_info
+		set rcount = (select sum(CNT) from (
+						select count(areport) as CNT from answer_board where id = #{id} 
+						union all 
+						select count(wreport) as CNT from write_board where id = #{id})
+					)
+		where id = #{id}
+	</update>
 
 </mapper>

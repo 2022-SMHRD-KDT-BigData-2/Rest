@@ -112,7 +112,7 @@
 				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
 					<div class="tag">
 						<% if(vo.getRcount() != null){ %>
-							<a href="reportMessage.jsp" style="color:red;"># 신고가 들어왔습니다!</a>
+							<a href="reportMessage" style="color:#ff4d6d;"># 신고가 들어왔습니다!</a>
 						<% } else{ %>
 							<a># 따뜻하게 사용해주세요!</a>
 						<% } %>						

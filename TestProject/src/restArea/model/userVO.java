@@ -19,6 +19,10 @@ public class userVO {
 		this.pw = pw;
 	}
 
+	public userVO(String id) {
+		this.id = id;
+	}
+
 	public String getId() {
 		return id;
 	}

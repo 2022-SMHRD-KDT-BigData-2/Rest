@@ -76,14 +76,14 @@
 	    padding-top : 15px;
 	    box-sizing: border-box;
 	    font-weight: bold;
-	    font-size : 20px;
+	    font-size : 25px;
 	}
 	
 	.popup > .content {
 	    padding: 20px;
 	    padding-top : 50px;
 	    box-sizing: border-box;
-	    font-size : 20px;
+	    font-size : 25px;
 	    text-align: center;
 	}
 	
@@ -112,12 +112,20 @@
 </head>
  
  <body class="dimmed">
+    <%
+		userVO vo = (userVO)session.getAttribute("vo");
+    	int report = Integer.parseInt(vo.getRcount()); 
+	%>
  <form action="goMain" method="post">
  	<div class="popup">
         <div class="title">신고 누적 안내</div>
         <div class="content">
             <p> (사유)로 신고당했습니다. </p>
-            <p> 다음에 신고 당하면 3일 계정 정지당합니다. </p>
+            <% if(report == 1){ %>
+            <p> 다음에 신고 당하면 계정이 3일 정지됩니다. </p>
+            <% } else if(report == 2){ %>
+            <p> 다음에 신고 당하면 계정이 정지됩니다. </p>
+            <% } %>
         </div>
         <div class="cmd">
             <input type="submit" name="btnclose" class="btn btn-primary" style="height:50px; font-size:20px;" value="닫기">    
@@ -125,9 +133,6 @@
     </div>
   </form>
     
-    <%
-		userVO vo = (userVO)session.getAttribute("vo");
-	%>
 	<div class="header navbar-fixed-top">
 		<div class="container">
 			<div class="row">

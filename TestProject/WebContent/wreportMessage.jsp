@@ -1,3 +1,4 @@
+<%@page import="restArea.model.writeVO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
    pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -81,7 +82,7 @@ body.dimmed::before {
    padding: 20px;
    padding-top: 50px;
    box-sizing: border-box;
-   font-size: 20px;
+   font-size: 25px;
    text-align: center;
 }
 
@@ -112,18 +113,15 @@ body.dimmed::before {
 
 <body class="dimmed">
 
-   <form action="checkAnswerBoard.jsp" method="post">
+   <form action="AnswerBoard.jsp" method="post">
       <div class="popup">
          <div class="title">신고 하기</div>
 
          <div class="rcontent" style="margin-top:20px;">
             <div class="recontent">
-               <input type="checkbox" name="report" value="욕설/비방" /> 욕설/비방 &nbsp;
-               &nbsp; 
-               <input type="checkbox" name="report" value="성희롱" />
-               성희롱&nbsp; &nbsp; 
-               <input type="checkbox" name="report" value="기타" />
-               기타
+               <input type="checkbox" name="report" value="욕설/비방" /> 욕설/비방 &nbsp;&nbsp; 
+               <input type="checkbox" name="report" value="성희롱" /> 성희롱&nbsp; &nbsp; 
+               <input type="checkbox" name="report" value="기타" /> 기타
             </div>
 
             <textarea class="form-control" placeholder="글 내용" name="wcontent"
@@ -137,6 +135,7 @@ body.dimmed::before {
          </div>
       </div>
    </form>
+   
    <div class="header navbar-fixed-top">
       <div class="container">
          <div class="row">
@@ -176,32 +175,36 @@ body.dimmed::before {
    </div>
 
    <!-- 여기서부터 작성 -->
-   <div class="space-medium" style="padding-bottom: 0px;">
-      <div class="container">
-         <div class="row">
-            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-               <div class="mchwrite">
-                  <h1>내가 쓴글</h1>
-               </div>
-            </div>
-            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-               <div class="mchanswer">
-                  <div class="mmchanswer">
-                     <h1>답글</h1>
-                  </div>
-               </div>
-            </div>
+   	<div class="space-medium">
+		<div class="container">
+			<div class="input-form-backgroud row">
+				<div class="input-form col-md-12 mx-auto">
+					<div class="row">	
+						<h1 class="joinTitle" style="padding-left:15px;">당신의 이야기를 보내주세요</h1>
+						
+						<div class="atitle">				
+						<span></span>
+						</div>
+						
+						<div class="acontent" style="overflow-y: scroll;">
+						<span></span>
+						</div>
+						
+						<form action="answer" method="post">									
+							<input type="submit" class="btn btn-primary" style="margin-left: 430px" value="신고">
+						</form>
+									
+						<form action="answer" method="post">									
+							<textarea class="form-control" placeholder="글 내용" name="acontent" style="height: 350px; font-size: 25px; color: black; margin-bottom : 20px;"></textarea>
+							<input type="submit" class="btn btn-primary" style="margin-left: 430px" value="전송">
+						</form>
 
-         </div>
-
-         <div class="checkgarden" style="width: 500px;">
-            <img src="./images/flower.png">
-         </div>
-      </div>
-   </div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
    <!-- 여기까지 작성 -->
-
-
 
    <!-- footer-->
    <div class="footer">

@@ -74,14 +74,14 @@ body.dimmed::before {
 	padding-top: 15px;
 	box-sizing: border-box;
 	font-weight: bold;
-	font-size: 20px;
+	font-size: 25px;
 }
 
 .popup>.content {
 	padding: 20px;
 	padding-top: 50px;
 	box-sizing: border-box;
-	font-size: 20px;
+	font-size: 25px;
 	text-align: center;
 }
 

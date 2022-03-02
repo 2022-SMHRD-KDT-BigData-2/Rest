@@ -92,7 +92,7 @@
                   <div class="yourstory" style="height:200px;">
                      <h1><%=uvo.getAcontent() %></h1>
                      <span class="chreport" style="display: flex;">
-                        <form action="deleteMessage.jsp" method="post">
+                        <form action="areportMessage.jsp" method="post">
                            <input type="submit" name="btnclose" class="btn btn-primary"
                               style="height: 40px; font-size: 16px; margin-left: 300px; padding-right: 20px; padding-left: 20px; padding-top: 12px;"
                               value="½Å°í">

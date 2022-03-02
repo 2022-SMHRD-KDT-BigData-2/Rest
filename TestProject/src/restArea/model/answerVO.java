@@ -7,17 +7,14 @@ public class answerVO {
 	private int write_seq;
 	private String acontent;
 	private String areport;
-	private String wreport;
 	private String sym;
 
-	public answerVO(int answer_seq, String id, int write_seq, String acontent, String areport, String wreport,
-			String sym) {
+	public answerVO(int answer_seq, String id, int write_seq, String acontent, String areport, String sym) {
 		this.answer_seq = answer_seq;
 		this.id = id;
 		this.write_seq = write_seq;
 		this.acontent = acontent;
 		this.areport = areport;
-		this.wreport = wreport;
 		this.sym = sym;
 	}
 
@@ -69,14 +66,6 @@ public class answerVO {
 
 	public void setAreport(String areport) {
 		this.areport = areport;
-	}
-
-	public String getWreport() {
-		return wreport;
-	}
-
-	public void setWreport(String wreport) {
-		this.wreport = wreport;
 	}
 
 	public String getSym() {

@@ -44,5 +44,11 @@ public class userDAO {
 		return uvo;
 	}
 	
+	public int sumReport(userVO vo) {
+		SqlSession session = sqlSessionFactory.openSession(true);
+		int cnt = session.update("sumReport", vo);
+		session.close();
+		return cnt;
+	}
 
 }
