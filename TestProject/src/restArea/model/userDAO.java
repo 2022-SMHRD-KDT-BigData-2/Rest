@@ -51,4 +51,11 @@ public class userDAO {
 		return cnt;
 	}
 
+	public userVO countReport(userVO vo) {
+		SqlSession session = sqlSessionFactory.openSession();
+		userVO rvo = session.selectOne("countReport", vo);
+		session.close();
+		return rvo;
+	}
+
 }

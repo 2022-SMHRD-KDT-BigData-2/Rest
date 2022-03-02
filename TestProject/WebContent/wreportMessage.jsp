@@ -75,7 +75,7 @@ body.dimmed::before {
    padding-top: 15px;
    box-sizing: border-box;
    font-weight: bold;
-   font-size: 20px;
+   font-size: 25px;
 }
 
 .popup>.content {
@@ -112,11 +112,14 @@ body.dimmed::before {
 </head>
 
 <body class="dimmed">
+<%
+	writeVO avo = (writeVO)session.getAttribute("avo");
+%>
 
-   <form action="AnswerBoard.jsp" method="post">
+   <form action="writeReport" method="post">
       <div class="popup">
-         <div class="title">신고 하기</div>
-
+         <div class="title">신고하기</div>
+         <input type="hidden" name="write_seq" value="<%= avo.getWrite_seq()%>">
          <div class="rcontent" style="margin-top:20px;">
             <div class="recontent">
                <input type="checkbox" name="report" value="욕설/비방" /> 욕설/비방 &nbsp;&nbsp; 
@@ -183,22 +186,15 @@ body.dimmed::before {
 						<h1 class="joinTitle" style="padding-left:15px;">당신의 이야기를 보내주세요</h1>
 						
 						<div class="atitle">				
-						<span></span>
+						<span><%= avo.getTitle() %></span>
 						</div>
 						
 						<div class="acontent" style="overflow-y: scroll;">
-						<span></span>
-						</div>
-						
-						<form action="answer" method="post">									
-							<input type="submit" class="btn btn-primary" style="margin-left: 430px" value="신고">
-						</form>
-									
-						<form action="answer" method="post">									
-							<textarea class="form-control" placeholder="글 내용" name="acontent" style="height: 350px; font-size: 25px; color: black; margin-bottom : 20px;"></textarea>
-							<input type="submit" class="btn btn-primary" style="margin-left: 430px" value="전송">
-						</form>
-
+						<span><%=avo.getWcontent() %></span>
+						</div>															
+						<input type="button" class="btn btn-primary" style="margin-left: 870px; margin-bottom:25px;" value="신고">														
+						<textarea class="form-control" placeholder="글 내용" name="acontent" style="height: 350px; font-size: 25px; color: black; margin-bottom : 20px;"></textarea>
+						<input type="button" class="btn btn-primary" style="margin-left: 440px" value="전송">
 					</div>
 				</div>
 			</div>

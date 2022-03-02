@@ -47,4 +47,11 @@ public class answerDAO {
 		return list;
 	}
 
+	public int areport(answerVO vo) {
+		SqlSession session = sqlSessionFactory.openSession(true);
+		int cnt = session.update("areport", vo);
+		session.close();
+		return cnt;			
+	}
+
 }

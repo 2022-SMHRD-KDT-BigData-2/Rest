@@ -33,7 +33,8 @@
 
 <body>
 	<%
-		writeVO avo = (writeVO)request.getAttribute("avo");
+		/* writeVO avo = (writeVO)request.getAttribute("avo"); */
+		writeVO avo = (writeVO)session.getAttribute("avo");
 	%>
    <div class="header navbar-fixed-top">
       <div class="container">
@@ -82,13 +83,13 @@
 						
 						<form action="wreportMessage.jsp" method="post">										
 							<input type="hidden" name="write_seq" value="<%= avo.getWrite_seq()%>">											
-							<input type="submit" class="btn btn-primary" style="margin-left: 430px" value="신고">
+							<input type="submit" class="btn btn-primary" style="margin-left: 870px; margin-bottom:25px;" value="신고">
 						</form>
 									
 						<form action="answer" method="post">
 							<input type="hidden" name="write_seq" value="<%= avo.getWrite_seq()%>">						
 							<textarea class="form-control" placeholder="글 내용" name="acontent" style="height: 350px; font-size: 25px; color: black; margin-bottom : 20px;"></textarea>
-							<input type="submit" class="btn btn-primary" style="margin-left: 430px" value="전송">
+							<input type="submit" class="btn btn-primary" style="margin-left: 440px" value="전송">
 						</form>
 
 					</div>

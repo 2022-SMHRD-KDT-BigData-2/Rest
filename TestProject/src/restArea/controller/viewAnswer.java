@@ -33,12 +33,13 @@ public class viewAnswer extends HttpServlet {
 		writeDAO dao = new writeDAO();
 		writeVO avo = dao.viewAnswer(vo);
 		
-		System.out.println(avo);
-		
-		request.setAttribute("avo", avo);
+		session.setAttribute("avo", avo);
+//		request.setAttribute("avo", avo);
 	      
-	    RequestDispatcher rd = request.getRequestDispatcher("answerBoard.jsp");
-	    rd.forward(request, response);
+//	    RequestDispatcher rd = request.getRequestDispatcher("answerBoard.jsp");
+//	    rd.forward(request, response);
+		
+		response.sendRedirect("answerBoard.jsp");
 
 	}
 }

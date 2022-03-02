@@ -76,5 +76,21 @@
 					)
 		where id = #{id}
 	</update>
+	
+	<update id="wreport" parameterType="restArea.model.writeVO">
+		update write_board
+		set wreport = '1'
+		where write_seq = #{write_seq}
+	</update>
+	
+	<update id="areport" parameterType="restArea.model.answerVO">
+		update answer_board
+		set areport = '1'
+		where answer_seq = #{answer_seq}
+	</update>
+	
+	<select id="countReport" resultType="restArea.model.userVO">
+		select * from user_info where id = #{id}
+	</select>
 
 </mapper>

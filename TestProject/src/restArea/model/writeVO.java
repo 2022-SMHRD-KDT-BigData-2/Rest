@@ -50,6 +50,11 @@ public class writeVO {
 		this.category = category;
 	}
 
+	public writeVO(int write_seq) {
+		super();
+		this.write_seq = write_seq;
+	}
+
 	public int getWrite_seq() {
 		return write_seq;
 	}

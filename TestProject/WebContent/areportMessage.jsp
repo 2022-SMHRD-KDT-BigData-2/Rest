@@ -1,3 +1,6 @@
+<%@page import="restArea.model.answerVO"%>
+<%@page import="java.util.List"%>
+<%@page import="restArea.model.writeVO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
    pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -74,7 +77,7 @@ body.dimmed::before {
    padding-top: 15px;
    box-sizing: border-box;
    font-weight: bold;
-   font-size: 20px;
+   font-size: 25px;
 }
 
 .popup>.content {
@@ -111,16 +114,20 @@ body.dimmed::before {
 </head>
 
 <body class="dimmed">
-
-   <form action="checkAnswerBoard.jsp" method="post">
+	<%
+		int aseq = (int)session.getAttribute("aseq");
+		writeVO vo =  (writeVO)session.getAttribute("wvo");
+		List<answerVO> list = (List<answerVO>) session.getAttribute("list");      
+	%>
+   <form action="answerReport" method="post">
       <div class="popup">
-         <div class="title">신고 하기</div>
-
+         <div class="title">신고하기</div>
+		  
          <div class="rcontent" style="margin-top:20px;">
             <div class="recontent">
-               <input type="checkbox" name="report" value="욕설/비방" /> 욕설/비방 &nbsp; &nbsp; 
-               <input type="checkbox" name="report" value="성희롱" /> 성희롱&nbsp; &nbsp; 
-               <input type="checkbox" name="report" value="기타" />  기타
+               <input type="checkbox" name="report" value="욕설/비방"/> 욕설/비방 &nbsp; &nbsp; 
+               <input type="checkbox" name="report" value="성희롱"/> 성희롱&nbsp; &nbsp; 
+               <input type="checkbox" name="report" value="기타"/>  기타
             </div>
 
             <textarea class="form-control" placeholder="글 내용" name="wcontent"
@@ -128,9 +135,7 @@ body.dimmed::before {
          </div>
 
          <div class="cmd" style="margin: center;">
-            <input type="submit" name="btnclose" class="btn btn-primary"
-               style="height: 50px; font-size: 20px;" value="신고 완료">
-      
+            <input type="submit" name="btnclose" class="btn btn-primary" style="height: 50px; font-size: 20px;" value="신고 완료">
          </div>
       </div>
    </form>
@@ -174,22 +179,27 @@ body.dimmed::before {
    </div>
 
    <!-- 여기서부터 작성 -->
-   <div class="space-medium" style="padding-bottom: 0px;">
+    <div class="space-medium" style="padding-bottom: 0px;">
       <div class="container">
          <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-               <div class="mchwrite">
-                  <h1>내가 쓴글</h1>
+               <div class="mystory">
+                  <h1><%=vo.getWcontent()%></h1>
                </div>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                <div class="mchanswer">
-                  <div class="mmchanswer">
-                     <h1>답글</h1>
+                <%for (answerVO uvo : list) { %>
+                  <div class="yourstory" style="height:200px;">
+                     <h1><%=uvo.getAcontent() %></h1>
+                     <span class="chreport" style="display: flex;">                       
+                          <input type="button" name="btnclose" class="btn btn-primary" style="height: 40px; font-size: 16px; margin-left: 300px; padding-right: 20px; padding-left: 20px; padding-top: 12px;" value="신고">
+                      	  <input type="button" name="btnclose" class="btn btn-primary" style="height: 40px; font-size: 16px; margin-left: 15px; padding-right: 20px; padding-left: 20px; padding-top: 12px;" value="공감">
+                     </span>
                   </div>
+                    <%} %>
                </div>
             </div>
-
          </div>
 
          <div class="checkgarden" style="width: 500px;">
@@ -197,31 +207,6 @@ body.dimmed::before {
          </div>
       </div>
    </div>
-   <!-- 여기까지 작성 -->
-
-
-
-   <!-- footer-->
-   <div class="footer">
-      <div class="container">
-         <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-               <div class="footer-widget">
-                  <img src="./images/instagram.png" width="60px" height="60px"
-                     alt="" hspace=10> <img src="./images/facebook.png"
-                     width="60px" height="60px" alt="" hspace=10> <img
-                     src="./images/twitter.png" width="60px" height="60px" alt=""
-                     hspace=10>
-               </div>
-               <br>
-               <div class="widget-title">
-                  <p>Info Support Marketing</p>
-                  <p>Terms of Use Privacy Policy</p>
-                  <p>@2022 대화해조</p>
-               </div>
-            </div>
-         </div>
-      </div>
    </div>
    <!-- /.footer-->
 

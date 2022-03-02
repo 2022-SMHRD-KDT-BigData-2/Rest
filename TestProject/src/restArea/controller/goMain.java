@@ -15,6 +15,7 @@ import restArea.model.bookDAO;
 import restArea.model.bookVO;
 import restArea.model.recommDAO;
 import restArea.model.recommVO;
+import restArea.model.userDAO;
 import restArea.model.userVO;
 
 // goMain
@@ -27,13 +28,15 @@ public class goMain extends HttpServlet {
 		HttpSession session = request.getSession();
 		userVO vo = (userVO)session.getAttribute("vo");
 		
+		userDAO udao = new userDAO();
 		recommDAO rdao = new recommDAO();
 		bookDAO bdao = new bookDAO();
 		
 			
 		if(vo != null) {
-			
-			
+			String id = vo.getId();
+			userVO uvo = new userVO(id);		
+			udao.sumReport(uvo);	
 		} else {
 			
 		}
@@ -48,8 +51,8 @@ public class goMain extends HttpServlet {
 		// 이달의 책
 		List<bookVO> list = bdao.monthBook();
 		request.setAttribute("list", list);
+
 		
-			
 		RequestDispatcher rd = request.getRequestDispatcher("Main.jsp");
 		rd.forward(request, response);
 	}

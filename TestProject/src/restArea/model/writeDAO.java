@@ -59,4 +59,11 @@ public class writeDAO {
 		return wvo;
 	}
 
+	public int wreport(writeVO vo) {
+		SqlSession session = sqlSessionFactory.openSession(true);
+		int cnt = session.update("wreport", vo);
+		session.close();
+		return cnt;		
+	}
+
 }

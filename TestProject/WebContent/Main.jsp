@@ -106,7 +106,7 @@
 				<% } else{ %> 
 				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
 					<div class="tag">
-						<a href="checkBoard.jsp"># 답변을 확인해주세요!</a>
+						<a href="check"># 답변을 확인해주세요!</a>
 					</div>
 				</div>
 				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
@@ -130,7 +130,7 @@
 			<div class="row">
 				<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
 					<div class="introduce">
-						<h1 style="font-size:42px">쉼터 ; 고민을 들어줄게요! </h1><br><br>
+						<h1 style="font-size:40px">쉼터 ; 고민을 들어줄게요! </h1><br>
 						<p>자신을 모르는 사람과 ‘편지’로 소통하며</p>
 						<p>솔직한 나의 이야기를 주고받으며 </p>
 						<p> ♥ 힐링하세요 ♥ </p>

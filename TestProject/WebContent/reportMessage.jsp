@@ -113,6 +113,7 @@
  
  <body class="dimmed">
     <%
+    	userVO rvo = (userVO)request.getAttribute("rvo");
 		userVO vo = (userVO)session.getAttribute("vo");
     	int report = Integer.parseInt(vo.getRcount()); 
 	%>
@@ -120,10 +121,11 @@
  	<div class="popup">
         <div class="title">신고 누적 안내</div>
         <div class="content">
-            <p> (사유)로 신고당했습니다. </p>
             <% if(report == 1){ %>
+            <p> <%= rvo.getRcount()%>번 신고당했습니다. </p>
             <p> 다음에 신고 당하면 계정이 3일 정지됩니다. </p>
             <% } else if(report == 2){ %>
+            <p> <%= rvo.getRcount()%>번 신고당했습니다. </p>
             <p> 다음에 신고 당하면 계정이 정지됩니다. </p>
             <% } %>
         </div>
