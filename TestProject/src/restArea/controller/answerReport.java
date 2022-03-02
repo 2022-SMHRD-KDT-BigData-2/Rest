@@ -18,20 +18,15 @@ public class answerReport extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		request.setCharacterEncoding("EUC-KR");
-		
 		HttpSession session = request.getSession();
-		int avo = (int)session.getAttribute("aseq");
+		String acontent = (String)session.getAttribute("ruser");
 		
-		int answer_seq = avo;
-		
-		answerVO vo = new answerVO(answer_seq);
-		answerDAO dao = new answerDAO();
-		int cnt = dao.areport(vo);
-		
+		answerDAO adao = new answerDAO();
+		int cnt = adao.areport(acontent);
+			
 		if(cnt>0) {
-			response.sendRedirect("checkAnswerboard.jsp");
-		}
+			 response.sendRedirect("check");          
+	     }
 		
 	}
 }

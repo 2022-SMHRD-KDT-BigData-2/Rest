@@ -47,9 +47,9 @@ public class answerDAO {
 		return list;
 	}
 
-	public int areport(answerVO vo) {
+	public int areport(String acontent) {
 		SqlSession session = sqlSessionFactory.openSession(true);
-		int cnt = session.update("areport", vo);
+		int cnt = session.update("areport", acontent);
 		session.close();
 		return cnt;			
 	}

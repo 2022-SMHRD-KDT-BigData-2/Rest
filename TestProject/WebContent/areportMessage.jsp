@@ -115,9 +115,8 @@ body.dimmed::before {
 
 <body class="dimmed">
 	<%
-		int aseq = (int)session.getAttribute("aseq");
 		writeVO vo =  (writeVO)session.getAttribute("wvo");
-		List<answerVO> list = (List<answerVO>) session.getAttribute("list");      
+		List<answerVO> list = (List<answerVO>)session.getAttribute("list");	
 	%>
    <form action="answerReport" method="post">
       <div class="popup">
@@ -206,7 +205,6 @@ body.dimmed::before {
             <img src="./images/flower.png">
          </div>
       </div>
-   </div>
    </div>
    <!-- /.footer-->
 

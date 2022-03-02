@@ -86,7 +86,7 @@
 	<update id="areport" parameterType="restArea.model.answerVO">
 		update answer_board
 		set areport = '1'
-		where answer_seq = #{answer_seq}
+		where acontent = #{acontent}
 	</update>
 	
 	<select id="countReport" resultType="restArea.model.userVO">
