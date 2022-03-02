@@ -74,14 +74,14 @@ body.dimmed::before {
 	padding-top: 15px;
 	box-sizing: border-box;
 	font-weight: bold;
-	font-size: 25px;
+	font-size: 20px;
 }
 
 .popup>.content {
 	padding: 20px;
 	padding-top: 50px;
 	box-sizing: border-box;
-	font-size: 25px;
+	font-size: 20px;
 	text-align: center;
 }
 
@@ -112,11 +112,11 @@ body.dimmed::before {
 
 <body class="dimmed">
 
-	<form action="checkAnswerBoard.jsp" method="post">
+	<form action="userCheck" method="post">
 		<div class="popup">
 			<div class="title">공감 하기</div>
-
-			<div class="cmd" style=" margin-top:10px; ">
+			
+			<div class="cmd" style=" margin-top:10px;">
 				<input type="submit" name="btnclose" class="btn btn-primary"
 					style="width: 700px; height: 50px; font-size: 20px; border: 4px solid #ccdbfd; background-color: white; color:black;margin-right:30px; padding-bottom: 35px;"
 					value="위로가 돼요!">

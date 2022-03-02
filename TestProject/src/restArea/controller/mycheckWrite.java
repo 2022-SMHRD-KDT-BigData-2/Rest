@@ -39,15 +39,11 @@ public class mycheckWrite extends HttpServlet {
 		
 		List<answerVO> list = adao.mycheckAnswer(avo);
 
-//		request.setAttribute("list", list);
-//		request.setAttribute("wvo", wvo);
-		
-		session.setAttribute("list", list);
-		session.setAttribute("wvo", wvo);
-		response.sendRedirect("checkAnswerBoard.jsp");
-
-//		RequestDispatcher rd = request.getRequestDispatcher("checkAnswerBoard.jsp");
-//		rd.forward(request, response);
+		request.setAttribute("list", list);
+		request.setAttribute("wvo", wvo);
+			
+		RequestDispatcher rd = request.getRequestDispatcher("checkAnswerBoard.jsp");
+		rd.forward(request, response);
 	}
 
 }

@@ -35,8 +35,9 @@
 
 <body>
 	<%
-		writeVO vo =  (writeVO)session.getAttribute("wvo");
-		List<answerVO> list = (List<answerVO>)session.getAttribute("list");      
+		writeVO vo =  (writeVO)request.getAttribute("wvo");
+		answerVO avo =  (answerVO)request.getAttribute("vo"); 
+		List<answerVO> list = (List<answerVO>)request.getAttribute("list");	
 	%>
    <div class="header navbar-fixed-top">
       <div class="container">
@@ -82,7 +83,7 @@
          <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                <div class="mystory">
-                  <h1><%=vo.getWcontent()%></h1>
+                  <h1><%=vo.getWcontent() %></h1>
                </div>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
@@ -90,16 +91,17 @@
                 <%for (answerVO uvo : list) { %>
                   <div class="yourstory" style="height:200px;">
                      <h1><%=uvo.getAcontent() %></h1>
-                     <span class="chreport" style="display: flex;">                       
+                     <span class="chreport" style="display: flex;">
                         <form action="areportMessage.jsp" method="post">
                            <input type="submit" name="btnclose" class="btn btn-primary"
                               style="height: 40px; font-size: 16px; margin-left: 300px; padding-right: 20px; padding-left: 20px; padding-top: 12px;"
-                              value="신고" onclick="<% session.setAttribute("aseq", uvo.getAnswer_seq()); %>">
+                              value="신고">
                         </form>
                         <form action="symMessage.jsp" method="post">
                            <input type="submit" name="btnclose" class="btn btn-primary"
                               style="height: 40px; font-size: 16px; margin-left: 15px; padding-right: 20px; padding-left: 20px; padding-top: 12px;"
-                              value="공감">
+                              value="공감" onclick=<% session.setAttribute("user", uvo.getAcontent());
+                              						session.setAttribute("uid", uvo.getId());%>>
                         </form>
                      </span>
                   </div>
@@ -113,7 +115,6 @@
          </div>
       </div>
    </div>
-
    <!-- 여기까지 작성 -->
 
 

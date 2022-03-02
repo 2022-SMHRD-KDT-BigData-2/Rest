@@ -57,5 +57,12 @@ public class userDAO {
 		session.close();
 		return rvo;
 	}
+	
+	public int symUpdate (String id) {
+		SqlSession session = sqlSessionFactory.openSession(true);
+		int cnt = session.update("symUpdate", id);
+		session.close();
+		return cnt;
+	}
 
 }
