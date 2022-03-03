@@ -120,7 +120,7 @@ body.dimmed::before {
 	%>
 	<form action="userCheck" method="post">
 		<div class="popup">
-			<div class="title">공감 하기</div>
+			<div class="title">공감하기</div>
 			
 			<div class="cmd" style=" margin-top:10px;">
 				<input type="submit" name="btnclose" class="btn btn-primary"

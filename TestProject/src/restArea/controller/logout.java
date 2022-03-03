@@ -20,6 +20,13 @@ public class logout extends HttpServlet {
       session.removeAttribute("gcnt");
       session.removeAttribute("uid");
       session.removeAttribute("user");
+      session.removeAttribute("list");
+      session.removeAttribute("wvo");
+      session.removeAttribute("avo");
+      session.removeAttribute("ruid");
+      session.removeAttribute("ruser");
+      session.removeAttribute("rvo");
+      session.removeAttribute("bvo");
       
       response.sendRedirect("goMain");
       

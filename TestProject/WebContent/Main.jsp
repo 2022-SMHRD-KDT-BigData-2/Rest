@@ -1,3 +1,4 @@
+<%@page import="restArea.model.musicVO"%>
 <%@page import="java.util.List"%>
 <%@page import="restArea.model.recommVO"%>
 <%@page import="restArea.model.bookVO"%>
@@ -37,9 +38,16 @@
 <body>
 	<%
 		userVO vo = (userVO)session.getAttribute("vo");
-		recommVO rvo = (recommVO)request.getAttribute("rvo"); 
-		bookVO bvo = (bookVO)request.getAttribute("bvo");
-		List<bookVO> list = (List<bookVO>)request.getAttribute("list");
+		recommVO rvo = (recommVO)session.getAttribute("rvo"); 
+		bookVO bvo = (bookVO)session.getAttribute("bvo");
+		List<bookVO> list = (List<bookVO>)session.getAttribute("list");
+		musicVO mvo = (musicVO)request.getAttribute("mvo");
+	%>
+	<%
+		userVO cnt = (userVO)session.getAttribute("cnt");
+		if(cnt != null){
+			response.sendRedirect("idMessage.jsp");
+		}
 	%>
 	<div class="header navbar-fixed-top">
 		<div class="container">
@@ -163,16 +171,29 @@
 
 				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
 					<div class="monthBook">
-						<h1 ># ¿Ã¥ﬁ¿« √•</h1>
-						<div style="height:390px; border:4px solid white; border-radius:20px; padding:10px; padding-top:30px;">
-						<% for(bookVO mvo : list){ %>										
-							<h2 style="margin-bottom:40px;"><%=mvo.getBook_seq()%>¿ß <%= mvo.getBname()%></h2>			
-						<% } %>
+						<h1 ># ø¿¥√¿« ¿Ωæ«</h1>
+						<div style="height:390px; padding:10px; padding-top:30px; padding-right:10px;">	
+									
+                  		<div style="border-bottom: 4px solid white; text-align: center; margin-top:20px;">
+                        <span style="font-size:30px; "><%= mvo.getMname() %> </span><br>   
+						</div>
+						
+						<div style="margin-top:20px; margin-bottom:150px; text-align:center">
+                        <span style="font-size:25px; "><%= mvo.getSinger() %></span>  
+                        </div> 
+						
+						<div style="margin : auto;">
+                        <audio autoplay loop controls>
+                             <source src="<%=mvo.getMurl()%>" type="audio/mp3" >
+                           </audio>
+                        </div>   
+                           
+                        </div>
+                         
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
 		</div>
 	
 	<div class="hero-section">

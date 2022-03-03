@@ -110,5 +110,17 @@
                   	  where id = #{id}))
         where id = #{id}
 	</update>
+	
+	<select id="countRcount" resultType="restArea.model.userVO">
+		select * from user_info where id=#{id} and rcount>=3
+	</select>
+	
+	<delete id="deleteId" parameterType="restArea.model.userVO">
+		delete from user_info where id=#{id}
+	</delete>
+	
+	<select id="todayMusic" resultType="restArea.model.musicVO">
+		select * from music where music_seq = (select TO_CHAR(sysdate, 'dd') from dual)
+	</select>
 
 </mapper>

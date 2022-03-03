@@ -13,10 +13,13 @@ import javax.servlet.http.HttpSession;
 
 import restArea.model.bookDAO;
 import restArea.model.bookVO;
+import restArea.model.musicDAO;
+import restArea.model.musicVO;
 import restArea.model.recommDAO;
 import restArea.model.recommVO;
 import restArea.model.userDAO;
 import restArea.model.userVO;
+import restArea.model.writeVO;
 
 // goMain
 
@@ -31,28 +34,34 @@ public class goMain extends HttpServlet {
 		userDAO udao = new userDAO();
 		recommDAO rdao = new recommDAO();
 		bookDAO bdao = new bookDAO();
+		musicDAO mdao = new musicDAO();
 		
 			
 		if(vo != null) {
 			String id = vo.getId();
 			userVO uvo = new userVO(id);		
-			udao.sumReport(uvo);	
-		} else {
+			udao.sumReport(uvo);
 			
-		}
+			userVO cvo = new userVO(id);
+			userVO cnt = udao.countRcount(cvo);
+			session.setAttribute("cnt", cnt);
+		} 
 		// 오늘의 글
 		recommVO rvo = rdao.todayRecomm();
-		request.setAttribute("rvo", rvo);
+		session.setAttribute("rvo", rvo);
 		
 		// 오늘의 책
 		bookVO bvo = bdao.todayBook();
-		request.setAttribute("bvo", bvo);
+		session.setAttribute("bvo", bvo);
 		
 		// 이달의 책
 		List<bookVO> list = bdao.monthBook();
-		request.setAttribute("list", list);
-
+		session.setAttribute("list", list);
 		
+		// 오늘의 노래
+		musicVO mvo = mdao.todayMusic();
+		request.setAttribute("mvo", mvo);
+
 		RequestDispatcher rd = request.getRequestDispatcher("Main.jsp");
 		rd.forward(request, response);
 	}

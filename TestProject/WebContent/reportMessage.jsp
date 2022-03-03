@@ -1,3 +1,6 @@
+<%@page import="java.util.List"%>
+<%@page import="restArea.model.bookVO"%>
+<%@page import="restArea.model.recommVO"%>
 <%@page import="restArea.model.userVO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
@@ -113,8 +116,11 @@
  
  <body class="dimmed">
     <%
-    	userVO rvo = (userVO)request.getAttribute("rvo");
-		userVO vo = (userVO)session.getAttribute("vo");
+	    userVO vo = (userVO)session.getAttribute("vo");
+		recommVO rvo = (recommVO)session.getAttribute("rvo"); 
+		bookVO bvo = (bookVO)session.getAttribute("bvo");
+		List<bookVO> list = (List<bookVO>)session.getAttribute("list");
+    	userVO rrvo = (userVO)request.getAttribute("rvo");
     	int report = Integer.parseInt(vo.getRcount()); 
 	%>
  <form action="goMain" method="post">
@@ -122,10 +128,10 @@
         <div class="title">신고 누적 안내</div>
         <div class="content">
             <% if(report == 1){ %>
-            <p> <%= rvo.getRcount()%>번 신고당했습니다. </p>
+            <p> <%= rrvo.getRcount()%>번 신고당했습니다. </p>
             <p> 다음에 신고 당하면 계정이 3일 정지됩니다. </p>
             <% } else if(report == 2){ %>
-            <p> <%= rvo.getRcount()%>번 신고당했습니다. </p>
+            <p> <%= rrvo.getRcount()%>번 신고당했습니다. </p>
             <p> 다음에 신고 당하면 계정이 정지됩니다. </p>
             <% } %>
         </div>
@@ -174,62 +180,89 @@
 	<div class="space-medium">
 		<div class="container">
 			<div class="row">
+		 		<% if(vo == null){ %>
 				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
 					<div class="tag">
-						<a># 답변을 확인해주세요!</a>
+						<a># 위로가 필요해요</a>
 					</div>
 				</div>
 				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
 					<div class="tag">
-						<a># 신고가 ~!</a>							
+						<a># 힘이 되어주세요</a>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+					<div class="tag">
+						<a># 편지를 써주세요</a>
+					</div>
+				</div>	
+				<% } else{ %> 
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+					<div class="tag">
+						<a href="check"># 답변을 확인해주세요!</a>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+					<div class="tag">
+						<% if(vo.getRcount() != null){ %>
+							<a href="reportMessage" style="color:#ff4d6d;"># 신고가 들어왔습니다!</a>
+						<% } else{ %>
+							<a># 따뜻하게 사용해주세요!</a>
+						<% } %>						
 					</div>
 				</div>
 				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
 					<div class="tag">
 						<a># ?</a>
+						
 					</div>
 				</div>	
-				<%-- <% } %> --%>
+				<% } %> 
 			</div>
 
 			<div class="row">
 				<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
 					<div class="introduce">
-						<h1>힘을 주세요!</h1>
+						<h1 style="font-size:40px">쉼터 ; 고민을 들어줄게요! </h1><br>
+						<p>자신을 모르는 사람과 ‘편지’로 소통하며</p>
+						<p>솔직한 나의 이야기를 주고받으며 </p>
+						<p> ♥ 힐링하세요 ♥ </p>
 						<br>
 					</div>
-					<!-- 소개글 -->
 				</div>
 
 				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
 					<div class="makegarden">
-						<h1># 화원 가꾸기</h1>
 					</div>
-					<!-- 화원 -->
 				</div>
 			</div>
 
+			
 			<div class="row">
 				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-					<div class="drawrecomm">
-						<h1>힘이 되는 말!</h1>
+					<div class="drawrecomm" style="overflow-y: scroll;">
+						<h1># 오늘의 글</h1><br>					
+							<span style="font-size:30px;"> <%= rvo.getRcontecnt() %> </span>	
 					</div>
-					<!-- 화원 -->
 				</div>
 
 
 				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-					<div class="todaybook">
-						<h1>오늘의 책</h1>
+					<div class="todaybook" style="margin-bottom:5px;">
+						<h1># 오늘의 책</h1>	
+						<a href="bookRecomm"><img src="<%= bvo.getBurl()%>" style="width:100%; height:88%;"></a><br>
 					</div>
-					<!-- 화원 -->
 				</div>
 
 				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-					<div class="drawgraph">
-						<h1>그래프</h1>
+					<div class="monthBook">
+						<h1 ># 이달의 책</h1>
+						<div style="height:390px; border:4px solid white; border-radius:20px; padding:10px; padding-top:30px;">
+						<% for(bookVO mvo : list){ %>										
+							<h2 style="margin-bottom:40px;"><%=mvo.getBook_seq()%>위 <%= mvo.getBname()%></h2>			
+						<% } %>
+						</div>
 					</div>
-					<!-- 화원 -->
 				</div>
 			</div>
 		</div>
@@ -242,7 +275,7 @@
 			</div>
 		</div>
 	</div>
-	
+		
 	<!-- footer-->
 		<div class="footer">	
 			<div class="container">

@@ -42,12 +42,6 @@ public class mycheckWrite extends HttpServlet {
 		session.setAttribute("list", list);
 		session.setAttribute("wvo", wvo);
 		response.sendRedirect("checkAnswerBoard.jsp");
-		
-//		request.setAttribute("list", list);
-//		request.setAttribute("wvo", wvo);
-			
-//		RequestDispatcher rd = request.getRequestDispatcher("checkAnswerBoard.jsp");
-//		rd.forward(request, response);
 	}
 
 }
