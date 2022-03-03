@@ -30,14 +30,19 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js "></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js "></script>
 <![endif]-->
+
+<style>
+.hidden {
+   display: none;
+}
+</style>
 </head>
 
 <body>
-
    <%
-      List<writeVO> list = (List<writeVO>) request.getAttribute("list");      
+		List<writeVO> list = (List<writeVO>) session.getAttribute("list"); 
+		List<writeVO> list2 = (List<writeVO>) session.getAttribute("list2");
    %>
-
 
    <div class="header navbar-fixed-top">
       <div class="container">
@@ -54,12 +59,8 @@
                      <ul>
                         <li><a href="writeBoard.jsp" title="Write">글 쓰기</a></li>
                         <li><a href="category.jsp" title="Answer">답변하기</a></li>
-                        <li><a href="garden" title="MyGarden">나의 화원</a></li>
-                        <li><a title="MyPage">나의 쉼터</a>
-                           <ul>
-                              <li><a href="check" title="Check">확인하기</a></li>
-                              <li><a href="logout" title="Logout">로그아웃</a></li>
-                           </ul></li>
+                        <li><a href="check" title="Check">확인하기</a></li>
+                        <li><a href="logout" title="Logout">로그아웃</a></li>
                      </ul>
                   </div>
                </div>
@@ -67,66 +68,81 @@
          </div>
       </div>
    </div>
-   <div class="hero-section">
-      <div class="container">
-         <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
-
-            </div>
-         </div>
-      </div>
-   </div>
-
+   
    <!-- 여기서부터 작성 -->
    <div class="space-medium">
       <div class="container">
          <div class="input-form-backgroud row">
             <div class="input-form col-md-12 mx-auto">
                <div class="row">
-                  <table class="table table-hover">
+                  <table class="table table-hover" >
                      <thead>
-
                         <tr>
-                           <th>번호</th>
                            <th>제목</th>
                            <th>날짜</th>
                            <th>답변</th>
                         </tr>
-
                      </thead>
                      <tbody>
                         <%
-                           int n = 1;
                         for (writeVO vo : list) {
-                           if(vo.getWrite_seq()>0){
+                           if (vo.getHmsg() != null) {
                         %>
-                        <tr>
-                           <td><%=n++%></td>
+                        
+                        <tr class="hidden">
+                        
                            <td><%=vo.getTitle()%></td>
                            <td><%=vo.getWdate()%></td>
-                           <td><a href="mycheckWrite?write_seq=<%=vo.getWrite_seq()%>"> answer</a></td>
+                           <td><a
+                              href="mycheckWrite?write_seq=<%=vo.getWrite_seq()%>"> 답변보기</a></td>
+                        </tr>                       
+                        <%
+                           } else if (vo.getDelmsg() != null) {
+                        %>
+                        <tr>
+                           <td colspan="3" > 나의 고민을 떠나 보내도 될까요?
+                        
+                              <form action="joy" method="post"  style="display:inline; margin-left:100px;" >
+                                 <input type="hidden" name="write_seq"
+                                    value="<%=vo.getWrite_seq()%>"> <input
+                                    type="submit" name="btnclose" class="btn btn-primary"
+                                    style="height: 40px; font-size: 16px;margin-left:-50px; padding-right: 20px; padding-left: 20px; padding-top: 10px; "
+                                    value="예">
+                              </form>
+
+                              <form action="no" method="post" style="display:inline;">
+                                 <input type="hidden" name="write_seq"
+                                    value="<%=vo.getWrite_seq()%>"> <input
+                                    type="submit" name="btnclose" class="btn btn-primary"
+                                    style="height: 40px; font-size: 16px;  padding-right: 20px; padding-left: 20px; padding-top: 10px; "
+                                    value="아니오">
+                              </form>
+                      
+                           </td>
                         </tr>
                         <%
-                           }}
+                           } else {
                         %>
+                        <tr>
+                     
+                           <td><%=vo.getTitle()%></td>
+                           <td><%=vo.getWdate()%></td>
+                           <td><a
+                              href="mycheckWrite?write_seq=<%=vo.getWrite_seq()%>"> 답변보기</a></td>
+                        </tr>
+                        <%
+                           }
+                        }
+                        %>
+
                      </tbody>
                   </table>
                </div>
-
             </div>
          </div>
       </div>
    </div>
-   <div class="text-center">
-      <ul class="pagination">
-         <li><a href="#">1</a></li>
-         <li><a href="#">2</a></li>
-         <li><a href="#">3</a></li>
-         <li><a href="#">4</a></li>
-         <li><a href="#">5</a></li>
 
-      </ul>
-   </div>
    <!-- 여기까지 작성 -->
 
    <div class="hero-section">

@@ -52,13 +52,9 @@
                   <div id="navigation">
                      <ul>
                         <li><a href="writeBoard.jsp" title="Write">글 쓰기</a></li>
-                        <li><a href="category.jsp" title="Answer">답변하기</a></li>
-                        <li><a href="garden" title="MyGarden">나의 화원</a></li>
-                        <li><a title="MyPage">나의 쉼터</a>
-                           <ul>
-                              <li><a href="check" title="Check">확인하기</a></li>
-                              <li><a href="logout" title="Logout">로그아웃</a></li>
-                           </ul></li>
+                        <li><a href="category.jsp" title="Answer">답변하기</a></li>                      
+                        <li><a href="check" title="Check">확인하기</a></li>
+                        <li><a href="logout" title="Logout">로그아웃</a></li>
                      </ul>
                   </div>
                </div>

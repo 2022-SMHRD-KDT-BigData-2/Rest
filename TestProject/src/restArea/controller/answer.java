@@ -32,6 +32,6 @@ public class answer extends HttpServlet {
 		answerDAO dao = new answerDAO();
 		int cnt = dao.answer(vo);
 
-		response.sendRedirect("goMain");
+		response.sendRedirect("answerSubmit.jsp");
 	}
 }

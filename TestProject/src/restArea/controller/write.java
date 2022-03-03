@@ -34,6 +34,6 @@ public class write extends HttpServlet {
 		writeDAO dao = new writeDAO();
 		int cnt = dao.write(vo);
 
-		response.sendRedirect("goMain");	
+		response.sendRedirect("writeSubmit.jsp");	
 	}
 }

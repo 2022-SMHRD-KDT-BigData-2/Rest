@@ -209,6 +209,7 @@ div.tag {
 }
 
 .tag>a {
+	text-align:center;
 	font-size: 32px;
 	line-height: 60px;
 	padding-left: 20px;
@@ -219,12 +220,12 @@ div.introduce {
 	height: 500px;
 	border-radius: 30px;
 	padding:40px;
-    background-image: url('../images/tree.png'); 
+    background-image: url('../images/tree.png');
     background-repeat: no-repeat; 
-    background-size: contain;
-	background-position: center bottom -15px; 
+    background-size: 100% 100%;
+    background-position: center bottom -5;
 	background-color:white; 
-	border:4.5px solid #c2d8b9;"
+	border:5px solid #c2d8b9;
 }
 
 .introduce>p{
@@ -233,18 +234,10 @@ div.introduce {
 	text-align: center;
 }
 
-div.makegarden {
-	background-color: white;
-	width: 100%;
-	height: 500px;
-	border: 4.5px solid #c2d8b9;
-	border-radius: 30px;
-	background-image: url("../images/mainGarden.png");
-}
-
 div.drawrecomm {
 	margin-top: 40px;
-	background-color: #fdffb6;
+	background-color: white;
+	border: 5px solid #d6eaff;
 	width: 100%;
 	height: 500px;
 	border-radius: 30px;
@@ -258,18 +251,20 @@ div.todaybook {
 	background-color: white;
 	width: 100%;
 	height: 500px;
-	border: 4.5px solid #e1e5fa;
+	border: 5px solid #ffe9b3;
 	border-radius: 30px;
 	padding: 30px;
+	margin-bottom:5px;
 }
 
-div.monthBook {
+div.todayMusic {
 	margin-top: 40px;
-	background-color: #e1e5f2;
+	background-color: white;;
 	width: 100%;
 	height: 500px;
+	border: 5px solid #e1e5fa;
 	border-radius: 30px;
-	padding: 30px;
+	padding: 26px;
 }
 
 .joinTitle {

@@ -5,32 +5,40 @@
 <mapper namespace="restArea.Model.userDAO">
 
 	<insert id="mainJoin" parameterType="restArea.model.userVO">
-		insert into user_info(id, pw) values(#{id}, #{pw})
+		insert into user_info(id,
+		pw) values(#{id}, #{pw})
 	</insert>
 
 	<select id="idCheck" resultType="restArea.model.userVO">
-		select * from user_info where id = #{id}
+		select * from user_info where id
+		= #{id}
 	</select>
 
-	<select id="mainLogin" parameterType="restArea.model.userVO" resultType="restArea.model.userVO">
+	<select id="mainLogin" parameterType="restArea.model.userVO"
+		resultType="restArea.model.userVO">
 		select * from user_info where id = #{id} and pw = #{pw}
 	</select>
 
 	<select id="todayRecomm" resultType="restArea.model.recommVO">
-		select * from recomm where recomm_seq = (select TO_CHAR(sysdate, 'dd') from dual)
+		select * from recomm where
+		recomm_seq = (select TO_CHAR(sysdate, 'dd') from dual)
 	</select>
 
 	<select id="todayBook" resultType="restArea.model.bookVO">
-		select * from book where book_seq = (select TO_CHAR(sysdate, 'dd') from dual)
+		select * from book where
+		book_seq = (select TO_CHAR(sysdate, 'dd') from dual)
 	</select>
 
 	<insert id="write" parameterType="restArea.model.writeVO">
-		insert into write_board(write_seq, id, category, wdate, title, wcontent)
-		values(write_seq.nextval, #{id}, #{category}, sysdate, #{title}, #{wcontent})
+		insert into
+		write_board(write_seq, id, category, wdate, title, wcontent)
+		values(write_seq.nextval, #{id}, #{category}, sysdate, #{title},
+		#{wcontent})
 	</insert>
 
 	<select id="recommBook" resultType="restArea.model.bookVO">
-		select * from book where book_seq = (select TO_CHAR(sysdate, 'dd') from dual)
+		select * from book where
+		book_seq = (select TO_CHAR(sysdate, 'dd') from dual)
 	</select>
 
 	<select id="garden" resultType="restArea.model.gardenVO">
@@ -38,89 +46,124 @@
 	</select>
 
 	<select id="viewBoard" resultType="restArea.model.writeVO">
-		select * from write_board where id=#{id}
+		select * from write_board
+		where id = #{id}
 	</select>
 
 	<select id="date" resultType="int">
-		select * from write_board where id=#{id} and sysdate-wdate>14
+		select * from write_board where
+		id=#{id} and sysdate-wdate>14
 	</select>
 
 	<select id="monthBook" resultType="restArea.model.bookVO">
-		select * from book where book_seq between 1 and 5
+		select * from book where
+		book_seq between 1 and 5
 	</select>
 
 	<select id="viewAnswer" resultType="restArea.model.writeVO">
-		select * from (select * from write_board where id != #{id} and category = #{category} order by dbms_random.value)
+		select * from (select * from
+		write_board where id != #{id} and category = #{category} order by
+		dbms_random.value)
 		where rownum = 1
 	</select>
 
 	<insert id="answer" parameterType="restArea.model.answerVO">
-		insert into answer_board(answer_seq, id, write_seq, acontent)
+		insert into
+		answer_board(answer_seq, id, write_seq, acontent)
 		values(answer_seq.nextval, #{id}, #{write_seq}, #{acontent})
 	</insert>
 
-	<select id="mycheckWrite" parameterType="restArea.model.writeVO" resultType="restArea.model.writeVO">
-		select wcontent from write_board where id=#{id} and write_seq=#{write_seq}
+	<select id="mycheckWrite" parameterType="restArea.model.writeVO"
+		resultType="restArea.model.writeVO">
+		select wcontent from write_board where id=#{id} and
+		write_seq=#{write_seq}
 	</select>
 
 	<select id="mycheckAnswer" resultType="restArea.model.answerVO">
-		select * from answer_board where write_seq=#{write_seq}
+		select * from answer_board
+		where write_seq=#{write_seq}
 	</select>
-	
+
 	<update id="sumReport" parameterType="restArea.model.userVO">
 		update user_info
-		set rcount = (select sum(CNT) from (
-						select count(areport) as CNT from answer_board where id = #{id} 
-						union all 
-						select count(wreport) as CNT from write_board where id = #{id})
-					)
+		set rcount
+		= (select sum(CNT) from (
+		select count(areport) as CNT from answer_board where id = #{id}
+		union all
+		select count(wreport) as CNT from write_board where id = #{id})
+		)
 		where id = #{id}
 	</update>
-	
+
 	<update id="wreport" parameterType="restArea.model.writeVO">
 		update write_board
-		set wreport = '1'
+		set wreport
+		= '1'
 		where write_seq = #{write_seq}
 	</update>
-	
+
 	<update id="areport" parameterType="restArea.model.answerVO">
 		update answer_board
-		set areport = '1'
+		set
+		areport = '1'
 		where acontent = #{acontent}
 	</update>
-	
+
 	<select id="countReport" resultType="restArea.model.userVO">
-		select * from user_info where id = #{id}
+		select * from user_info
+		where id = #{id}
 	</select>
-	
+
 	<update id="userCheck" parameterType="restArea.model.answerVO">
-    	update answer_board set sym = '1' 
-        where acontent = #{acontent}
-    </update>
-    
-    <update id="symUpdate" parameterType="restArea.model.userVO">
-    	update user_info
-        set gcount = (select sum(CNT) 
-        			  from (select count(sym) as CNT 
-        			  		from answer_board 
-        			  		where id = #{id} 
-                  	  union all 
-                  	  select count(joymsg) as CNT 
-                  	  from write_board 
-                  	  where id = #{id}))
-        where id = #{id}
+		update answer_board set sym = '1'
+		where acontent = #{acontent}
 	</update>
-	
+
+	<update id="symUpdate" parameterType="restArea.model.userVO">
+		update user_info
+		set gcount = (select sum(CNT)
+		from (select count(sym) as CNT
+		from answer_board
+		where id = #{id}
+		union all
+		select count(joymsg) as CNT
+		from write_board
+		where id = #{id}))
+		where id = #{id}
+	</update>
+
 	<select id="countRcount" resultType="restArea.model.userVO">
-		select * from user_info where id=#{id} and rcount>=3
+		select * from user_info
+		where id=#{id} and rcount>=3
 	</select>
-	
+
 	<delete id="deleteId" parameterType="restArea.model.userVO">
 		delete from user_info where id=#{id}
 	</delete>
-	
+
 	<select id="todayMusic" resultType="restArea.model.musicVO">
 		select * from music where music_seq = (select TO_CHAR(sysdate, 'dd') from dual)
 	</select>
+
+	<select id="selid" resultType="restArea.model.userVO">
+		select * from user_info where rcount='3' and id=#{id}
+	</select>
+
+	<update id="minusdate" parameterType="restArea.model.writeVO">
+		update write_board set delmsg='1' where id=#{id} and write_seq in(
+		select write_seq from write_board where (sysdate-wdate)>14 )
+	</update>
+
+	<select id="seldel" resultType="restArea.model.writeVO">
+		select * from write_board where delmsg='1'
+	</select>
+
+	<update id="joy" parameterType="restArea.model.writeVO">
+		update write_board set joymsg='1', hmsg='1' where write_seq=#{write_seq}
+	</update>
+
+	<update id="no" parameterType="restArea.model.writeVO">
+		update write_board set hmsg='1' where write_seq=#{write_seq}
+	</update>
 
 </mapper>

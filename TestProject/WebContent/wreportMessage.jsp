@@ -154,12 +154,8 @@ body.dimmed::before {
                      <ul>
                         <li><a title="Write">글 쓰기</a></li>
                         <li><a title="Answer">답변하기</a></li>
-                        <li><a title="MyGarden">나의 화원</a></li>
-                        <li><a title="MyPage">나의 쉼터</a>
-                           <ul>
-                              <li><a title="Check">확인하기</a></li>
-                              <li><a title="Logout">로그아웃</a></li>
-                           </ul></li>
+                        <li><a title="Check">확인하기</a></li>
+                        <li><a title="Logout">로그아웃</a></li>
                      </ul>
                   </div>
                </div>

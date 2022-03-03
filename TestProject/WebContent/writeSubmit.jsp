@@ -1,4 +1,3 @@
-<%@page import="restArea.model.gardenVO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -29,27 +28,10 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js "></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js "></script>
 <![endif]-->
-<style>
-.flower{
- 	object-fit:cover;
- 	width:100%;
-    height:100%;    
-}
-</style>
+
 </head>
 
 <body>
-	<%
-		gardenVO vo = (gardenVO) session.getAttribute("gcnt");
-
-		int gnt = 0;
-
-		if (vo.getGcount() == null) {
-			gnt = 0;
-		} else {
-			gnt = Integer.parseInt(vo.getGcount());
-		}
-	%>
 	<div class="header navbar-fixed-top">
 		<div class="container">
 			<div class="row">
@@ -89,53 +71,27 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12 col-md-12  col-sm-12  col-xs-12 ">
-					<div style="background-color: #f7a399; border-radius: 20px; height: 50px; margin-bottom:25px; padding-top:7px;">
-						<h1 style="text-align: center;">나의 화원</h1>
+					<div style="border:5px solid #48cae4; border-radius: 20px; height:650px;
+								background-image: url('./images/submit.png'); background-size: 100% 100%;">
+				<p style="text-align: center; font-size: 35px; padding:50px; color:#a5a5a5;">편지가 가는 중 입니다 ...</p>
+						
 					</div>
-
 					<div class="row">
-						<div class="col-lg-12 col-md-12  col-sm-12  col-xs-12 ">
-							<div style="border:4px solid #fbc3bc; border-radius: 20px; height:650px;">
-								<% if (gnt <= 5) { %>
-								<img class="flower" src="images/gimg/1.png">
-								<%
-									} else if (gnt > 5 && gnt <= 10) {
-								%>
-								<img class="flower" src="images/gimg/2.png">
-								<%
-									} else if (gnt > 10 && gnt <= 15) {
-								%>
-								<img class="flower" src="images/gimg/3.png">
-								<%
-									} else if (gnt > 15 && gnt <= 20) {
-								%>
-								<img class="flower" src="images/gimg/4.png">
-								<%
-									} else if (gnt > 20 && gnt <= 25) {
-								%>
-								<img class="flower" src="images/gimg/5.png">
-								<%
-									} else if (gnt > 25 && gnt <= 30) {
-								%>
-								<img class="flower" src="images/gimg/6.png">
-								<%
-									} else if (gnt > 30 && gnt <= 35) {
-								%>
-								<img class="flower" src="images/gimg/7.png">
-								<%
-									} else if (gnt > 35 && gnt <= 40) {
-								%>
-								<img class="flower" src="images/gimg/8.png">
-								<%
-									} else if (gnt > 40 && gnt <= 45) {
-								%>
-								<img class="flower" src="images/gimg/9.png">
-								<%
-									}
-								%>
-							</div>
-						</div>
-					</div>
+				<div class="col-lg-4 col-md-4  col-sm-4  col-xs-4 ">		
+					<a href="goMain"><button type="button" class="btn btn-primary" 
+	                     style="width:100%; font-size:25px; border:4px solid #a2d2ff; background-color:white; color:black; margin-top:30px;">메인으로 돌아가기</button></a>
+				</div>
+				<div class="col-lg-4 col-md-4  col-sm-4  col-xs-4 ">		
+					<a href="writeBoard.jsp"><button type="button" class="btn btn-primary" 
+	                     style="width:100%; font-size:25px; border:4px solid #a2d2ff; background-color:white; color:black; margin-top:30px;">다시 글 쓰기</button></a>
+				</div>
+				<div class="col-lg-4 col-md-4  col-sm-4  col-xs-4 ">		
+					<a href="check"><button type="button" class="btn btn-primary" 
+	                     style="width:100%; font-size:25px; border:4px solid #a2d2ff; background-color:white; color:black; margin-top:30px;">답변 확인하기</button></a>
+				</div>
+				
+				
+					</div>					
 				</div>
 			</div>
 		</div>

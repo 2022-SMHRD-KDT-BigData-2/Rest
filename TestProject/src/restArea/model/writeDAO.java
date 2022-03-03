@@ -63,7 +63,35 @@ public class writeDAO {
 		SqlSession session = sqlSessionFactory.openSession(true);
 		int cnt = session.update("wreport", vo);
 		session.close();
-		return cnt;		
+		return cnt;
+	}
+
+	public int minusdate(writeVO dvo) {
+		SqlSession session = sqlSessionFactory.openSession(true);
+		int delboard = session.update("minusdate", dvo);
+		session.close();
+		return delboard;
+	}
+
+	public List<writeVO> seldel() {
+		SqlSession session = sqlSessionFactory.openSession();
+		List<writeVO> list2 = session.selectList("seldel");
+		session.close();
+		return list2;
+	}
+
+	public int joy(writeVO wvo) {
+		SqlSession session = sqlSessionFactory.openSession(true);
+		int cnt = session.update("joy", wvo);
+		session.close();
+		return cnt;
+	}
+
+	public int no(writeVO vo) {
+		SqlSession session = sqlSessionFactory.openSession(true);
+		int cnt = session.update("no", vo);
+		session.close();
+		return cnt;
 	}
 
 }

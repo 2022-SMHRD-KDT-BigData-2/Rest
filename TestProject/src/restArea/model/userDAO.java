@@ -10,24 +10,24 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 // user_info DAO (회원 정보)
 public class userDAO {
 	private static SqlSessionFactory sqlSessionFactory;
-	
+
 	static {
 		try {
-			String resource = "restArea/mapper/config.xml"; 
+			String resource = "restArea/mapper/config.xml";
 			InputStream inputStream = Resources.getResourceAsStream(resource);
-			sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);					
+			sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-	
+
 	// -----------------------------------------------------------------------------
-	
+
 	public int join(userVO vo) {
 		SqlSession session = sqlSessionFactory.openSession(true);
 		int cnt = session.insert("mainJoin", vo);
 		session.close();
-		return cnt;	
+		return cnt;
 	}
 
 	public userVO idCheck(String id) {
@@ -43,7 +43,7 @@ public class userDAO {
 		session.close();
 		return uvo;
 	}
-	
+
 	public int sumReport(userVO vo) {
 		SqlSession session = sqlSessionFactory.openSession(true);
 		int cnt = session.update("sumReport", vo);
@@ -57,8 +57,8 @@ public class userDAO {
 		session.close();
 		return rvo;
 	}
-	
-	public int symUpdate (String id) {
+
+	public int symUpdate(String id) {
 		SqlSession session = sqlSessionFactory.openSession(true);
 		int cnt = session.update("symUpdate", id);
 		session.close();
@@ -70,7 +70,6 @@ public class userDAO {
 		userVO cnt = session.selectOne("countRcount", cvo);
 		session.close();
 		return cnt;
-		
 	}
 
 	public int deleteId(userVO vo) {
@@ -78,7 +77,13 @@ public class userDAO {
 		int cnt = session.delete("deleteId", vo);
 		session.close();
 		return cnt;
-		
+	}
+
+	public userVO selid(String id) {
+		SqlSession session = sqlSessionFactory.openSession();
+		userVO svo = session.selectOne("selid", id);
+		session.close();
+		return svo;
 	}
 
 }

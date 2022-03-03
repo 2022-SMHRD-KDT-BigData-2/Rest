@@ -61,6 +61,11 @@ public class goMain extends HttpServlet {
 		// ø¿¥√¿« ≥Î∑°
 		musicVO mvo = mdao.todayMusic();
 		request.setAttribute("mvo", mvo);
+		
+		// writeVO session
+	     writeVO wvo= new writeVO();
+	     session.setAttribute("writeSession", wvo);
+	     session.setMaxInactiveInterval(14*24*60*60);
 
 		RequestDispatcher rd = request.getRequestDispatcher("Main.jsp");
 		rd.forward(request, response);
