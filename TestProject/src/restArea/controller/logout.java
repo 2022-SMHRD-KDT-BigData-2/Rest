@@ -28,7 +28,6 @@ public class logout extends HttpServlet {
       session.removeAttribute("rvo");
       session.removeAttribute("bvo");
       
-      response.sendRedirect("goMain");
-      
+      response.sendRedirect("goMain");  
    }
 }

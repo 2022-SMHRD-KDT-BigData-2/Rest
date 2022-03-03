@@ -60,7 +60,7 @@ public class goMain extends HttpServlet {
 		
 		// ø¿¥√¿« ≥Î∑°
 		musicVO mvo = mdao.todayMusic();
-		request.setAttribute("mvo", mvo);
+		session.setAttribute("mvo", mvo);
 		
 		// writeVO session
 	     writeVO wvo= new writeVO();

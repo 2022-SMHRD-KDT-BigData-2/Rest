@@ -36,15 +36,13 @@
 </head>
 
 <body>
-	<audio autoplay controls>
-		<source src="audio/Bolbbalgan.mp3" type="audio/mpeg" >
-	</audio>
+
 	<%
 		userVO vo = (userVO)session.getAttribute("vo");
 		recommVO rvo = (recommVO)session.getAttribute("rvo"); 
 		bookVO bvo = (bookVO)session.getAttribute("bvo");
 		List<bookVO> list = (List<bookVO>)session.getAttribute("list");
-		musicVO mvo = (musicVO)request.getAttribute("mvo");
+		musicVO mvo = (musicVO)session.getAttribute("mvo");
 	%>
 	<%
 		userVO cnt = (userVO)session.getAttribute("cnt");
@@ -117,12 +115,8 @@
 					</div>
 				</div>
 				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-					<div class="tag">
-						<% if(vo.getRcount() != null){ %>
-							<a href="reportMessage" style="color:#ff4d6d;"># 신고가 들어왔습니다!</a>
-						<% } else{ %>
-							<a># 따뜻하게 사용해주세요!</a>
-						<% } %>						
+					<div class="tag">					
+						<a href="reportMessage"># 신고를 확인해주세요!</a>											
 					</div>
 				</div>
 				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
