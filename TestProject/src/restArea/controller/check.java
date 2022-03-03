@@ -32,8 +32,6 @@ public class check extends HttpServlet {
       writeDAO dao = new writeDAO();
       List<writeVO> list = dao.viewBoard(id);
       
-      System.out.println(list);
-      
       request.setAttribute("list", list);
       
       RequestDispatcher rd = request.getRequestDispatcher("checkBoard.jsp");

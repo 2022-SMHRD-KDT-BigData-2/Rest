@@ -116,27 +116,20 @@
  
  <body class="dimmed">
     <%
-	    userVO vo = (userVO)session.getAttribute("vo");
-		recommVO rvo = (recommVO)session.getAttribute("rvo"); 
-		bookVO bvo = (bookVO)session.getAttribute("bvo");
-		List<bookVO> list = (List<bookVO>)session.getAttribute("list");
-    	userVO rrvo = (userVO)request.getAttribute("rvo");
-    	int report = Integer.parseInt(vo.getRcount()); 
+	userVO vo = (userVO)session.getAttribute("vo");
+	recommVO rvo = (recommVO)session.getAttribute("rvo"); 
+	bookVO bvo = (bookVO)session.getAttribute("bvo");
+	List<bookVO> list = (List<bookVO>)session.getAttribute("list");
 	%>
- <form action="goMain" method="post">
+ <form action="deleteId" method="post">
  	<div class="popup">
-        <div class="title">신고 누적 안내</div>
-        <div class="content">
-            <% if(report == 1){ %>
-            <p> <%= rrvo.getRcount()%>번 신고당했습니다. </p>
-            <p> 다음에 신고 당하면 계정이 3일 정지됩니다. </p>
-            <% } else if(report == 2){ %>
-            <p> <%= rrvo.getRcount()%>번 신고당했습니다. </p>
-            <p> 다음에 신고 당하면 계정이 정지됩니다. </p>
-            <% } %>
+        <div class="title">계정 삭제 안내</div>
+        <div class="content">          
+            <p> 3번 신고 당했습니다. </p>        
+            <p> 계정이 삭제됩니다. </p>
         </div>
         <div class="cmd">
-            <input type="submit" name="btnclose" class="btn btn-primary" style="height:50px; font-size:20px;" value="닫기">    
+            <input type="submit" name="btnclose" class="btn btn-primary" style="height:50px; font-size:20px;" value="확인">    
         </div>
     </div>
   </form>

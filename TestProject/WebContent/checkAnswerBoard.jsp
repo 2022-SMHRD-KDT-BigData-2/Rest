@@ -35,9 +35,8 @@
 
 <body>
 	<%
-		writeVO vo =  (writeVO)request.getAttribute("wvo");
-		answerVO avo =  (answerVO)request.getAttribute("vo"); 
-		List<answerVO> list = (List<answerVO>) request.getAttribute("list");      
+		writeVO vo =  (writeVO)session.getAttribute("wvo");
+		List<answerVO> list = (List<answerVO>)session.getAttribute("list");	
 	%>
    <div class="header navbar-fixed-top">
       <div class="container">
@@ -95,12 +94,14 @@
                         <form action="areportMessage.jsp" method="post">
                            <input type="submit" name="btnclose" class="btn btn-primary"
                               style="height: 40px; font-size: 16px; margin-left: 300px; padding-right: 20px; padding-left: 20px; padding-top: 12px;"
-                              value="신고">
+                              value="신고" onclick=<% session.setAttribute("ruser", uvo.getAcontent());
+                              						session.setAttribute("ruid", uvo.getId());%>>
                         </form>
                         <form action="symMessage.jsp" method="post">
                            <input type="submit" name="btnclose" class="btn btn-primary"
                               style="height: 40px; font-size: 16px; margin-left: 15px; padding-right: 20px; padding-left: 20px; padding-top: 12px;"
-                              value="공감">
+                              value="공감" onclick=<% session.setAttribute("user", uvo.getAcontent());
+                              						session.setAttribute("uid", uvo.getId());%>>
                         </form>
                      </span>
                   </div>
@@ -113,7 +114,6 @@
             <img src="./images/flower.png">
          </div>
       </div>
-   </div>
    </div>
    <!-- 여기까지 작성 -->
 

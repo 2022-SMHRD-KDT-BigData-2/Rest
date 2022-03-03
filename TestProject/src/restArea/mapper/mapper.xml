@@ -76,5 +76,51 @@
 					)
 		where id = #{id}
 	</update>
+	
+	<update id="wreport" parameterType="restArea.model.writeVO">
+		update write_board
+		set wreport = '1'
+		where write_seq = #{write_seq}
+	</update>
+	
+	<update id="areport" parameterType="restArea.model.answerVO">
+		update answer_board
+		set areport = '1'
+		where acontent = #{acontent}
+	</update>
+	
+	<select id="countReport" resultType="restArea.model.userVO">
+		select * from user_info where id = #{id}
+	</select>
+	
+	<update id="userCheck" parameterType="restArea.model.answerVO">
+    	update answer_board set sym = '1' 
+        where acontent = #{acontent}
+    </update>
+    
+    <update id="symUpdate" parameterType="restArea.model.userVO">
+    	update user_info
+        set gcount = (select sum(CNT) 
+        			  from (select count(sym) as CNT 
+        			  		from answer_board 
+        			  		where id = #{id} 
+                  	  union all 
+                  	  select count(joymsg) as CNT 
+                  	  from write_board 
+                  	  where id = #{id}))
+        where id = #{id}
+	</update>
+	
+	<select id="countRcount" resultType="restArea.model.userVO">
+		select * from user_info where id=#{id} and rcount>=3
+	</select>
+	
+	<delete id="deleteId" parameterType="restArea.model.userVO">
+		delete from user_info where id=#{id}
+	</delete>
+	
+	<select id="todayMusic" resultType="restArea.model.musicVO">
+		select * from music where music_seq = (select TO_CHAR(sysdate, 'dd') from dual)
+	</select>
 
 </mapper>

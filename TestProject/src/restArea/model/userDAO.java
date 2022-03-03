@@ -51,4 +51,34 @@ public class userDAO {
 		return cnt;
 	}
 
+	public userVO countReport(userVO vo) {
+		SqlSession session = sqlSessionFactory.openSession();
+		userVO rvo = session.selectOne("countReport", vo);
+		session.close();
+		return rvo;
+	}
+	
+	public int symUpdate (String id) {
+		SqlSession session = sqlSessionFactory.openSession(true);
+		int cnt = session.update("symUpdate", id);
+		session.close();
+		return cnt;
+	}
+
+	public userVO countRcount(userVO cvo) {
+		SqlSession session = sqlSessionFactory.openSession();
+		userVO cnt = session.selectOne("countRcount", cvo);
+		session.close();
+		return cnt;
+		
+	}
+
+	public int deleteId(userVO vo) {
+		SqlSession session = sqlSessionFactory.openSession(true);
+		int cnt = session.delete("deleteId", vo);
+		session.close();
+		return cnt;
+		
+	}
+
 }

@@ -1,3 +1,6 @@
+<%@page import="restArea.model.answerVO"%>
+<%@page import="java.util.List"%>
+<%@page import="restArea.model.writeVO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -74,14 +77,14 @@ body.dimmed::before {
 	padding-top: 15px;
 	box-sizing: border-box;
 	font-weight: bold;
-	font-size: 25px;
+	font-size: 20px;
 }
 
 .popup>.content {
 	padding: 20px;
 	padding-top: 50px;
 	box-sizing: border-box;
-	font-size: 25px;
+	font-size: 20px;
 	text-align: center;
 }
 
@@ -111,12 +114,15 @@ body.dimmed::before {
 </head>
 
 <body class="dimmed">
-
-	<form action="checkAnswerBoard.jsp" method="post">
+	<%
+		writeVO vo =  (writeVO)session.getAttribute("wvo");
+		List<answerVO> list = (List<answerVO>)session.getAttribute("list");	
+	%>
+	<form action="userCheck" method="post">
 		<div class="popup">
-			<div class="title">공감 하기</div>
-
-			<div class="cmd" style=" margin-top:10px; ">
+			<div class="title">공감하기</div>
+			
+			<div class="cmd" style=" margin-top:10px;">
 				<input type="submit" name="btnclose" class="btn btn-primary"
 					style="width: 700px; height: 50px; font-size: 20px; border: 4px solid #ccdbfd; background-color: white; color:black;margin-right:30px; padding-bottom: 35px;"
 					value="위로가 돼요!">
@@ -175,29 +181,39 @@ body.dimmed::before {
 	</div>
 
 	<!-- 여기서부터 작성 -->
-	<div class="space-medium" style="padding-bottom: 0px;">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-					<div class="mchwrite">
-						<h1>내가 쓴글</h1>
-					</div>
-				</div>
-				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-					<div class="mchanswer">
-						<div class="mmchanswer">
-							<h1>답글</h1>
-						</div>
-					</div>
-				</div>
+   <div class="space-medium" style="padding-bottom: 0px;">
+      <div class="container">
+         <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+               <div class="mystory">
+                  <h1><%=vo.getWcontent() %></h1>
+               </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+               <div class="mchanswer">
+                <%for (answerVO uvo : list) { %>
+                  <div class="yourstory" style="height:200px;">
+                     <h1><%=uvo.getAcontent() %></h1>
+                     <span class="chreport" style="display: flex;">                       
+                           <input type="button" name="btnclose" class="btn btn-primary"
+                              style="height: 40px; font-size: 16px; margin-left: 300px; padding-right: 20px; padding-left: 20px; padding-top: 12px;"
+                              value="신고" >                                
+                           <input type="button" name="btnclose" class="btn btn-primary"
+                              style="height: 40px; font-size: 16px; margin-left: 15px; padding-right: 20px; padding-left: 20px; padding-top: 12px;"
+                              value="공감">
+                        </form>
+                     </span>
+                  </div>
+                    <%} %>
+               </div>
+            </div>
+         </div>
 
-			</div>
-
-			<div class="checkgarden" style="width: 500px;">
-				<img src="./images/flower.png">
-			</div>
-		</div>
-	</div>
+         <div class="checkgarden" style="width: 500px;">
+            <img src="./images/flower.png">
+         </div>
+      </div>
+   </div>
 	<!-- 여기까지 작성 -->
 
 
