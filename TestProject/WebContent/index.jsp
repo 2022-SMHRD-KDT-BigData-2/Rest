@@ -9,4 +9,4 @@
 <body>
  	<jsp:forward page="goMain"></jsp:forward> 
 </body>
-</html>aaa
+</html>
