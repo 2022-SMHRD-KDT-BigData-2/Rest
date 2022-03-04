@@ -77,9 +77,14 @@
 						<span> <%= avo.getWcontent() %></span>
 						</div>
 						
-						<form action="wreportMessage.jsp" method="post">										
+						<form action="wreportMessage.jsp" method="post">
+						<% if(avo.getWreport() == null){ %>										
 							<input type="hidden" name="write_seq" value="<%= avo.getWrite_seq()%>">											
 							<input type="submit" class="btn btn-primary" style="margin-left: 870px; margin-bottom:25px;" value="신고">
+						<% } else{ %>
+							<input type="hidden" class="btn btn-primary" style="margin-left: 870px; margin-bottom:25px;" value="신고">
+						<% } %>
+						
 						</form>
 									
 						<form action="answer" method="post">

@@ -78,36 +78,47 @@
       <div class="container">
          <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-               <div class="mystory">
+               <div class="mystory"  style="height: 800px;">
                   <h1><%= vo.getWcontent() %></h1>
                </div>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-               <div class="mchanswer">
+               <div class="mchanswer" style="height: 800px;">
                 <%for (answerVO uvo : list) { %>
-                  <div class="yourstory" style="height:200px;">
+                  <div class="yourstory" style="height:300px;">
                      <h1><%=uvo.getAcontent() %></h1>
+                     <div style="padding-bottom:30px;">
                      <span class="chreport" style="display: flex;">
-                        <form action="areportMessage.jsp" method="post">
+                        <form action="areportMessage.jsp" method="post">  
                         <% if(uvo.getAreport() == null){ %>
                            <input type="submit" name="btnclose" class="btn btn-primary"
-                              style="height: 40px; font-size: 16px; margin-left: 290px; padding-right: 20px; padding-left: 20px; padding-top: 12px;"
+                              style="height:40px; font-size:16px; margin-left:290px; margin-bottom: 30px; margin-top: 65px; padding-right: 20px; padding-left: 20px; padding-top: 12px;"
                               value="신고" onclick=<% session.setAttribute("ruser", uvo.getAcontent());
                               						session.setAttribute("ruid", uvo.getId());%>>
                               						
                         <%} else{ %>
+                       		<span style="padding-right:355px;"></span>
                         	<input type="hidden" name="btnclose" class="btn btn-primary"
-                              style="height: 40px; font-size: 16px; margin-left: 290px; padding-right: 20px; padding-left: 20px; padding-top: 12px;"
+                              style="height: 40px; font-size: 16px;  margin-bottom: 30px; padding-right: 20px; padding-left: 20px; padding-top: 12px;"
                               value="신고" >                        
                         <% } %>            
                         </form>
+                        
                         <form action="symMessage.jsp" method="post">
+                         <% if(uvo.getSym() == null){ %>
                            <input type="submit" name="btnclose" class="btn btn-primary"
-                              style="height: 40px; font-size: 16px; margin-left: 15px; padding-right: 20px; padding-left: 20px; padding-top: 12px;"
+                              style="height:40px; font-size:16px; margin-left:15px;  margin-top: 65px; padding-right: 20px; padding-left: 20px; padding-top: 12px;"
                               value="공감" onclick=<% session.setAttribute("user", uvo.getAcontent());
                               						session.setAttribute("uid", uvo.getId());%>>
+                         <%} else{ %>  
+                        	 <span style="padding-right:355px;"></span>                     	 
+                         	 <input type="hidden" name="btnclose" class="btn btn-primary"
+                              style="height: 40px; font-size: 16px; margin-bottom: 30px; padding-right: 20px; padding-left: 20px; padding-top: 12px;"
+                              value="공감">
+                         <% } %>  
                         </form>
                      </span>
+                     </div>
                   </div>
                     <%} %>
                </div>
