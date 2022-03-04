@@ -62,7 +62,7 @@
 
 	<select id="viewAnswer" resultType="restArea.model.writeVO">
 		select * from (select * from write_board 
-						where category = #{category}
+						where category = #{category} and hmsg != '1'
 						and id IN (select id from user_info where id != #{id})						
 						order by dbms_random.value)
 		where rownum = 1
