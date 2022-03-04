@@ -1,3 +1,4 @@
+<%@page import="restArea.model.userDAO"%>
 <%@page import="restArea.model.musicVO"%>
 <%@page import="java.util.List"%>
 <%@page import="restArea.model.recommVO"%>
@@ -115,8 +116,12 @@
 					</div>
 				</div>
 				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-					<div class="tag">					
-						<a href="reportMessage"># 신고를 확인해주세요!</a>											
+					<div class="tag">
+						<% if(vo.getRcount() != null){ %>				
+						<a href="reportMessage"># 신고를 확인해주세요!</a>		
+						<% } else{ %>
+						<a># 신고를 확인해주세요!</a>	
+						<% } %>									
 					</div>
 				</div>
 				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">

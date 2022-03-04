@@ -36,6 +36,7 @@
 <body>
 	<%
 		writeVO vo =  (writeVO)session.getAttribute("wvo");
+		/* answerVO avo =  (answerVO)request.getAttribute("vo"); */
 		List<answerVO> list = (List<answerVO>)session.getAttribute("list");	
 	%>
    <div class="header navbar-fixed-top">
@@ -78,7 +79,7 @@
          <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                <div class="mystory">
-                  <h1><%=vo.getWcontent() %></h1>
+                  <h1><%= vo.getWcontent() %></h1>
                </div>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
@@ -89,7 +90,7 @@
                      <span class="chreport" style="display: flex;">
                         <form action="areportMessage.jsp" method="post">
                            <input type="submit" name="btnclose" class="btn btn-primary"
-                              style="height: 40px; font-size: 16px; margin-left: 300px; padding-right: 20px; padding-left: 20px; padding-top: 12px;"
+                              style="height: 40px; font-size: 16px; margin-left: 290px; padding-right: 20px; padding-left: 20px; padding-top: 12px;"
                               value="½Å°í" onclick=<% session.setAttribute("ruser", uvo.getAcontent());
                               						session.setAttribute("ruid", uvo.getId());%>>
                         </form>

@@ -61,9 +61,10 @@
 	</select>
 
 	<select id="viewAnswer" resultType="restArea.model.writeVO">
-		select * from (select * from
-		write_board where id != #{id} and category = #{category} order by
-		dbms_random.value)
+		select * from (select * from write_board 
+						where category = #{category} and hmsg NOT IN ('1')
+						and id IN (select id from user_info where id != #{id})						
+						order by dbms_random.value)
 		where rownum = 1
 	</select>
 
@@ -121,14 +122,13 @@
 
 	<update id="symUpdate" parameterType="restArea.model.userVO">
 		update user_info
-		set gcount = (select sum(CNT)
-		from (select count(sym) as CNT
-		from answer_board
-		where id = #{id}
-		union all
-		select count(joymsg) as CNT
-		from write_board
-		where id = #{id}))
+		set gcount = (select sum(CNT) from (select count(sym) as CNT
+						from answer_board
+						where id = #{id}
+						union all
+						select count(joymsg) as CNT
+						from write_board
+						where id = #{id}))
 		where id = #{id}
 	</update>
 

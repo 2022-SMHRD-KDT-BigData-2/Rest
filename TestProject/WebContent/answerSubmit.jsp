@@ -82,7 +82,7 @@
 	                     style="width:100%; font-size:25px; border:4px solid #a2d2ff; background-color:white; color:black; margin-top:30px;">메인으로 돌아가기</button></a>
 				</div>
 				<div class="col-lg-4 col-md-4  col-sm-4  col-xs-4 ">		
-					<a href="writeBoard.jsp"><button type="button" class="btn btn-primary" 
+					<a href="category.jsp"><button type="button" class="btn btn-primary" 
 	                     style="width:100%; font-size:25px; border:4px solid #a2d2ff; background-color:white; color:black; margin-top:30px;">다시 답변하기</button></a>
 				</div>
 				<div class="col-lg-4 col-md-4  col-sm-4  col-xs-4 ">		

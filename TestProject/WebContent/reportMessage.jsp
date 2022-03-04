@@ -244,8 +244,7 @@
                         </div>
 						
 						<div style="margin-right : 10px;">
-                        <audio autoplay loop controls>
-                             <source src="<%=mvo.getMurl()%>" type="audio/mp3" >
+                        <audio autoplay loop controls>                          
                            </audio>
                         </div>   
                            

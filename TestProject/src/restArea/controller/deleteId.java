@@ -26,7 +26,8 @@ public class deleteId extends HttpServlet {
 	      int cnt = dao.deleteId(vo);
 	      
 	      if(cnt>0) {
-	    	  response.sendRedirect("logout");
+	    	  session.removeAttribute("vo");
+	    	  response.sendRedirect("goMain");
 	      }
 	      	
 	}
