@@ -36,7 +36,7 @@
 <body>
 	<%
 		writeVO vo =  (writeVO)session.getAttribute("wvo");
-		/* answerVO avo =  (answerVO)request.getAttribute("vo"); */
+		answerVO avo =  (answerVO)request.getAttribute("vo");
 		List<answerVO> list = (List<answerVO>)session.getAttribute("list");	
 	%>
    <div class="header navbar-fixed-top">
@@ -89,10 +89,17 @@
                      <h1><%=uvo.getAcontent() %></h1>
                      <span class="chreport" style="display: flex;">
                         <form action="areportMessage.jsp" method="post">
+                        <% if(uvo.getAreport() == null){ %>
                            <input type="submit" name="btnclose" class="btn btn-primary"
                               style="height: 40px; font-size: 16px; margin-left: 290px; padding-right: 20px; padding-left: 20px; padding-top: 12px;"
                               value="신고" onclick=<% session.setAttribute("ruser", uvo.getAcontent());
                               						session.setAttribute("ruid", uvo.getId());%>>
+                              						
+                        <%} else{ %>
+                        	<input type="hidden" name="btnclose" class="btn btn-primary"
+                              style="height: 40px; font-size: 16px; margin-left: 290px; padding-right: 20px; padding-left: 20px; padding-top: 12px;"
+                              value="신고" >                        
+                        <% } %>            
                         </form>
                         <form action="symMessage.jsp" method="post">
                            <input type="submit" name="btnclose" class="btn btn-primary"
