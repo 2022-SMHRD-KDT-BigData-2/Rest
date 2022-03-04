@@ -47,6 +47,8 @@
   
   
   <build>
+  	<finalName>TestProject</finalName>
+  
     <sourceDirectory>src</sourceDirectory>
 	    <pluginManagement>
 	    <plugins>
