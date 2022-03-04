@@ -78,7 +78,7 @@
 							</span>
 
 							<textarea class="form-control" placeholder="글 내용" name="wcontent" style="height: 350px; font-size: 25px; color: black; margin-bottom : 20px;"></textarea>
-							<input type="submit" class="btn btn-primary" style="margin-left: 400px" value="전송">
+							<input type="submit" class="btn btn-primary" style="margin-left: 440px" value="전송">
 						</form>
 
 					</div>
