@@ -98,7 +98,6 @@
 			</div>
 		</div>
 	</div>
-   <!-- 여기까지 작성 -->
 
    <div class="hero-section">
       <div class="container">
