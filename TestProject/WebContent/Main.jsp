@@ -146,9 +146,9 @@
 			<div class="row">
 				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-					<div class="drawrecomm" style="overflow-y: scroll;">
+					<div class="drawrecomm">
 						<h1># ø¿¥√¿« ±€</h1><br>		
-							<div style="padding:20px; background-color:#d6eaff; border-radius: 30px; height:83%;">			
+							<div claa="indrawrecomm" style="padding:20px; background-color:#d6eaff; border-radius: 30px; height:83%; overflow-y: scroll;">			
 							<span style="font-size:30px;"> <%= rvo.getRcontecnt() %> </span>	
 							</div>
 					</div>
