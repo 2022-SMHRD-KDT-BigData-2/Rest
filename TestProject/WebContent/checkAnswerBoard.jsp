@@ -89,7 +89,7 @@
                      <h1><%=uvo.getAcontent() %></h1>
                      <div style="padding-bottom:30px;">
                      <span class="chreport" style="display: flex;">
-                        <form action="areportMessage.jsp" method="post">  
+                        <form action="areportMessage.jsp" method="post" >  
                         <% if(uvo.getAreport() == null){ %>
                            <input type="submit" name="btnclose" class="btn btn-primary"
                               style="height:40px; font-size:16px; margin-left:290px; margin-bottom: 30px; margin-top: 65px; padding-right: 20px; padding-left: 20px; padding-top: 12px;"
