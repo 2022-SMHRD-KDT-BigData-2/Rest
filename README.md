@@ -1,6 +1,9 @@
 ## 쉼터
 익명성을 보장하여 마음 편히 문제 혹은 고민을 털어놓는 커뮤니티 서비스  
 
+## 대표 이미지
+![KakaoTalk_20220310_092649334](https://user-images.githubusercontent.com/98693749/157775558-80357fe2-267a-4b76-93af-8c46bfdeca3e.png)
+
 ## 주요기능
 - 글 쓰기, 글 답변 , 글 확인 하기 기능
 - 나의 화원 기능
@@ -19,7 +22,6 @@
 - 빌드도구 : maven
 - 디자인도구 : PhotoShop
 - 일정관리 : notion, GitHub
-## 대표 이미지
-![KakaoTalk_20220310_092649334](https://user-images.githubusercontent.com/98693749/157775558-80357fe2-267a-4b76-93af-8c46bfdeca3e.png)
+
 ## 서비스 URL
 
