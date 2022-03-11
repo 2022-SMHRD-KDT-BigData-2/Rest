@@ -9,7 +9,7 @@
 - 익명성을 보장하는 커뮤니티 게시판
 
 ## 유스케이스
-유스케이스 사진 
+![KakaoTalk_20220310_092526221](https://user-images.githubusercontent.com/98693749/157775605-fd642d54-4780-4b16-b79c-e779500a6e51.png) 
 
 ## 개발환경
 - 사용언어 : Java / HTML / CSS / Javascript
@@ -20,5 +20,6 @@
 - 디자인도구 : PhotoShop
 - 일정관리 : notion, GitHub
 ## 대표 이미지
-![image01](쉼표 이미지)
+![KakaoTalk_20220310_092649334](https://user-images.githubusercontent.com/98693749/157775558-80357fe2-267a-4b76-93af-8c46bfdeca3e.png)
 ## 서비스 URL
+
